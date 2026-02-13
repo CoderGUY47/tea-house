@@ -29,8 +29,9 @@
     </style>
 </head>
 <body class="bg-white">
+    <main class="container">
      <!-- 1440px 1100px -->
-    <section class="container w-[76.39%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 py-12 items-center">
+    <section class="container w-[76%] mx-auto grid grid-cols-2 gap-8 py-12 items-center">
         <div class="banner-left space-y-[50px]">
             <h1 class="text-7xl font-bold text-gray-800 leading-[75px]">
                 It's good <br>tea time at The Tea House
@@ -42,9 +43,58 @@
                 Explore More <span class="ml-3 -rotate-45 inline-block"><i class="fa-solid fa-arrow-right"></i></span>
             </button>
         </div>
-        <div class="banner-right">
+        <div class="relative banner-right w-[655px]">
             <img src="./images/banner.png" alt="Tea House Banner" class="w-full">
+            <div class="absolute w-[250px] flex gap-4 py-5 px-4 justify-center items-center rounded-xl bg-white shadow-2xl left-[27%] top-[80%]">
+                <img src="./images/rating.png" alt="">
+                <div>
+                <h3 class="text-gray-800 font-bold text-3xl">5.00</h3>
+                <p class="text-gray-400">Trust Pilot Ratings</p>
+                </div>
+            </div>
         </div>
     </section>
+
+
+    <section class="container mx-auto py-12">
+        <div class="max-w-[70%] text-center mx-auto">
+            <h1 class="text-4xl font-bold text-gray-800 leading-[75px]">Our Featured Products</h1>
+            <p class="max-w-[800px] mx-auto tracking-wide text-base mt-3 mb-8 text-gray-600 leading-[30px]">
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+            </p>
+        </div>
+    <div class="featured-card-container w-[76%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-8">
+        <div class="featured-cards bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg">
+            <img src="./images/tea-1.png" alt="tea-cup" class="mx-auto mb-4">
+            <h4 class="text-xl text-gray-800 font-semibold">Milk Tea</h4>
+            <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
+        </div>
+        <div class="featured-cards bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg">
+            <img src="./images/tea-2.png" alt="tea-cup" class="mx-auto mb-4">
+            <h4 class="text-xl text-gray-800 font-semibold">Milk Tea</h4>
+            <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
+        </div>
+        <div class="featured-cards bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg">
+            <img src="./images/tea-3.png" alt="tea-cup" class="mx-auto mb-4">
+            <h4 class="text-xl text-gray-800 font-semibold">Milk Tea</h4>
+            <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
+        </div>
+        <div class="featured-cards bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg">
+            <img src="./images/tea-4.png" alt="tea-cup" class="mx-auto mb-4">
+            <h4 class="text-xl text-gray-800 font-semibold">Milk Tea</h4>
+            <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
+        </div>
+    </div>
+    </section>
+
+
+    //fresh tea section
+    <section>
+        <div class="max-w-[74%] container mx-auto py-12 bg-red-400 p-4">
+
+        </div>
+    </section>
+
+    </main>
 </body>
 </html>
