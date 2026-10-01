@@ -1,4 +1,4 @@
-﻿/* Typography system:
+/* Typography system:
    Google Sans Flex = body, navigation, labels and controls
    Anton = major display typography and product/article titles
    Delius = handwritten tea-house accents and editorial quotes
@@ -289,14 +289,14 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
 }
 .hero-meta div { display: flex; flex-direction: column; }
 .hero-meta strong {
-  font-family: var(--serif);
-  font-size: clamp(52px, 5vw, 72px);
-  line-height: 0.9;
+  font-family: var(--body);
+  font-size: clamp(42px, 4.6vw, 64px);
+  line-height: 0.95;
   letter-spacing: -0.03em;
   color: var(--ink);
   margin-bottom: 6px;
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
 }
 .hero-meta span { color: #6c776f; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; display: flex; align-items: center; gap: 5px; }
 .hero-meta span .fi { font-size: 13px; color: var(--tea); }
@@ -319,7 +319,7 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
 }
 .leaf-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--matcha); display: grid; place-items: center; color: var(--forest); }
 .floating-note small { display: block; font-size: 9px; color: #849087; text-transform: uppercase; letter-spacing: .1em; }
-.floating-note strong { display: block; font-family: var(--display); font-size: 16px; }
+.floating-note strong { display: block; font-family: var(--body); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
 .arrow-circle { margin-left: auto; font-size: 17px; }
 .vertical-label { position: absolute; right: -15px; top: 28%; writing-mode: vertical-rl; font-size: 9px; letter-spacing: .3em; color: #819083; }
 
@@ -1154,73 +1154,81 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .product-card:hover{transform:none}
 }
 
-/* Icon polish: FlatIcon & FontAwesome Taka */
-.fa-bangladeshi-taka-sign {
-  font-size: 0.88em;
-  vertical-align: -0.04em;
-  margin-right: 2px;
-}
-.eyebrow .fi {
-  font-size: 12px;
+/* ==========================================================================
+   Global Icon Alignment Fix - Flaticon UIcons (.fi) & FontAwesome
+   Every .fi glyph is made an inline-flex block, optically centered
+   on the text cap-height so arrows, leaves, taka, and cart icons
+   all sit flush with surrounding text in every context.
+   ========================================================================== */
+
+/* Universal Flaticon reset */
+.fi {
   display: inline-flex;
   align-items: center;
-}
-.quick-add {
-  display: grid;
-  place-items: center;
-}
-.quick-add .fi {
-  font-size: 15px;
+  justify-content: center;
   line-height: 1;
+  vertical-align: -0.125em;   /* optical baseline offset for icon fonts */
+  flex-shrink: 0;
 }
-.leaf-icon .fi {
-  font-size: 14px;
+
+/* Bangladeshi Taka (FontAwesome) */
+.fa-bangladeshi-taka-sign {
+  font-size: 0.85em;
   line-height: 1;
+  vertical-align: -0.08em;
+  margin-right: 1px;
 }
-.arrow-circle {
-  display: grid;
-  place-items: center;
-}
-.arrow-circle .fi {
-  font-size: 13px;
-  line-height: 1;
-}
-.marquee-track b .fi {
-  font-size: 24px;
-  line-height: 1;
-  display: inline-flex;
-  vertical-align: middle;
-}
-.ritual-photo b {
-  display: grid;
-  place-items: center;
-}
-.ritual-photo b .fi {
-  font-size: 15px;
-  line-height: 1;
-}
+
+/* ---- Context-specific SIZE overrides (alignment handled by universal rule above) ---- */
+
+/* Eyebrow labels */
+.eyebrow .fi        { font-size: 12px; }
+
+/* Buttons & CTAs */
 .btn .fi,
-.btn-dark .fi {
-  font-size: 14px;
-  line-height: 1;
-  display: inline-flex;
-  vertical-align: middle;
-}
-.nav-cta .fi {
-  font-size: 11px;
-  line-height: 1;
-  display: inline-flex;
-  vertical-align: middle;
-}
+.btn-dark .fi       { font-size: 14px; }
+.nav-cta .fi        { font-size: 11px; }
+
+/* Links with trailing arrow */
 .text-link .fi,
 .journal-copy a .fi,
-.footer-links a .fi {
-  font-size: 10px;
-  line-height: 1;
-  display: inline-flex;
-  vertical-align: middle;
-  margin-left: 3px;
-}
+.footer-links a .fi { font-size: 10px; margin-left: 3px; }
+
+/* Inline arrow wrappers */
+.arrow-circle       { display: inline-flex; align-items: center; justify-content: center; }
+.arrow-circle .fi   { font-size: 13px; }
+.leaf-icon .fi      { font-size: 14px; }
+
+/* Quick-add (+) button */
+.quick-add          { display: grid; place-items: center; }
+.quick-add .fi      { font-size: 15px; }
+
+/* Ritual photo badge */
+.ritual-photo b     { display: grid; place-items: center; }
+.ritual-photo b .fi { font-size: 15px; }
+
+/* Marquee leaf separators */
+.marquee-track b .fi { font-size: 24px; }
+
+/* Cart trigger & close */
+.cart-trigger .fi   { font-size: 16px; }
+.cart-close-btn .fi { font-size: 16px; pointer-events: none; }
+
+/* Cart item icons */
+.cart-item-remove .fi { font-size: 14px; }
+.btn-browse .fi       { font-size: 13px; }
+
+/* Filter / slider nav */
+.slider-btn .fi     { font-size: 16px; }
+
+/* Form / checkout icons */
+.form-section-title .fi { font-size: 14px; }
+.checkout-submit-btn .fi { font-size: 15px; }
+.receipt-check .fi  { font-size: 28px; }
+
+/* Newsletter & footer */
+.footer-input-row button .fi { font-size: 11px; }
+.footer-social-link .fi      { font-size: 30px; vertical-align: middle; }
 
 /* ==========================================================================
    Scroll-Trigger Horizontal Slider for "Leaves worth lingering over."
