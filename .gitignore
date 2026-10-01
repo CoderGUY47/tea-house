@@ -1,0 +1,16 @@
+# Agent / AI tool internals
+.agents/
+antislop.md
+skills-lock.json
+
+# Design source files
+*.fig
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node / build artifacts
+node_modules/
+dist/
+.env
