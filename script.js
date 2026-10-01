@@ -1,5 +1,5 @@
-// ==========================================================================
-// The Tea House — Main Engine
+﻿// ==========================================================================
+// The Tea House - Main Engine
 // Navigation, Product Slider, Cart Manager, Checkout & Payment Processor
 // ==========================================================================
 
@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Populate Receipt Modal
       if (receiptOrderNum) receiptOrderNum.textContent = `#${orderId}`;
-      if (receiptCustomer) receiptCustomer.textContent = `${name} (${phone}) — ${address}, ${city}`;
+      if (receiptCustomer) receiptCustomer.textContent = `${name} (${phone}) - ${address}, ${city}`;
       if (receiptEta) {
         receiptEta.textContent = city.includes("Dhaka (Inside City)") ? "Within 24 Hours (Eco-Courier)" : "Within 48 Hours";
       }
@@ -686,6 +686,18 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTrackHeight();
     handleCollectionScroll();
   }, { passive: true });
+
+  // Fix: prevent the slider from trapping wheel events.
+  // When cursor is over the card area, redirect wheel scroll to the page
+  // so handleCollectionScroll() can update card position via window.scrollY.
+  const productSliderWrapper = document.querySelector(".product-slider-wrapper");
+  [productSlider, productSliderWrapper].forEach(el => {
+    el?.addEventListener("wheel", (e) => {
+      if (window.innerWidth < 981) return; // mobile: let native scroll work
+      e.preventDefault();
+      window.scrollBy({ top: e.deltaY, left: 0 });
+    }, { passive: false });
+  });
 
   // Initial calculation
   setTimeout(() => {

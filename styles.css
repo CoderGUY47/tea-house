@@ -1,10 +1,10 @@
-/* Typography system:
+﻿/* Typography system:
    Google Sans Flex = body, navigation, labels and controls
    Anton = major display typography and product/article titles
    Delius = handwritten tea-house accents and editorial quotes
 */
 :root {
-  /* Single green — #18453B across the whole site */
+  /* Single green - #18453B across the whole site */
   --topbar-green: #18453B;
   --topbar-text: #f0f6ee;
 
@@ -203,7 +203,7 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 
-/* Sub-page hero — same container width as the nav, no full-bleed */
+/* Sub-page hero - same container width as the nav, no full-bleed */
 .page-hero {
   padding: 140px 0 70px;
   background:
@@ -213,7 +213,7 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 .page-hero-inner {
-  /* inherits .container width — same as nav */
+  /* inherits .container width - same as nav */
   max-width: 820px;
 }
 .page-hero-title {
