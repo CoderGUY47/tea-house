@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover our journey: single-origin leaves sourced from Sreemangal family gardens and crafted for slow moments in Dhaka." />
+  <title>Our Story — The Tea House, Dhaka</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Delius&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (strictly used for Bangladeshi Taka icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Flaticon UIcons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="announcement">
+    <p>Free delivery on orders over <i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 1,500</p>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="The Tea House home">
+        <img class="brand-logo" src="logo.png" alt="The Tea House logo" width="44" height="44" />
+        <span>
+          <strong>The Tea House</strong>
+          <small>EST. 2012 · DHAKA</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="story.html" class="active">Our Story</a>
+        <a href="collection.html">Tea Collection</a>
+        <a href="ritual.html">The Ritual</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="journal.html">Journal</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-trigger" id="cartTrigger" aria-label="View tea bag" title="View your tea bag">
+          <i class="fi fi-rr-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <a class="nav-cta" href="collection.html">Shop Now <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+      <div class="container page-hero-inner reveal">
+        <p class="eyebrow"><i class="fi fi-rr-leaf" aria-hidden="true"></i> Heritage &amp; Ethos</p>
+        <h1 class="page-hero-title">Rooted in slow living.<br><em>Grounded in Sylhet soil.</em></h1>
+        <p class="page-hero-desc">
+          Founded in 2012, The Tea House was born from an unyielding belief: in a bustling capital that moves at dizzying speed, tea is the gentlest way to pause and reclaim your breath.
+        </p>
+      </div>
+    </section>
+
+    <!-- Deep Story Section -->
+    <section class="section story-detail">
+      <div class="container story-grid">
+        <div class="story-collage reveal">
+          <div class="collage-main">
+            <img src="https://images.pexels.com/photos/5635372/pexels-photo-5635372.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tea artisan examining leaves" />
+          </div>
+          <div class="collage-small">
+            <img src="https://images.pexels.com/photos/17928232/pexels-photo-17928232.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Fresh green tea leaves in Sreemangal" />
+          </div>
+          <div class="collage-stamp">SINCE<br>2012<br>DHAKA</div>
+        </div>
+
+        <div class="story-copy reveal reveal-delay">
+          <p class="eyebrow"><i class="fi fi-rr-marker" aria-hidden="true"></i> The Sreemangal Foothills</p>
+          <h2>Between morning mist<br><em>and monsoon rain.</em></h2>
+          <p>
+            Our story begins in the lush undulations of Maulvibazar and Sylhet. In high-canopy biodynamic tea gardens where ancient trees shade tender young tea bushes, our partner farmers harvest only two leaves and a bud at daybreak.
+          </p>
+          <p>
+            Unlike mass-commercial commodity teas that are pulverized into indistinguishable dust, every leaf in our collection is carefully withered, sun-basked, and gently rolled to preserve its essential botanical oils and natural sweetness.
+          </p>
+          <div class="hero-meta" style="margin-top:35px; border-top:1px solid rgba(24,60,42,0.12); padding-top:25px;">
+            <div><strong>14</strong><span>Year Heritage</span></div>
+            <div><strong>100%</strong><span>Traceable Leaves</span></div>
+            <div><strong>0</strong><span>Synthetic Flavours</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pillars of Craft -->
+    <section class="section" style="background:#f4f1ea;">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow"><i class="fi fi-rr-sparkles" aria-hidden="true"></i> Principles</p>
+            <h2>How we honour<br><em>the leaf.</em></h2>
+          </div>
+          <p>Every decision we make honours traditional farming and the quiet dignity of deliberate craft.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:24px;">
+          <article class="reveal" style="background:#ffffff; border-radius:18px; padding:36px 30px; box-shadow:0 12px 35px rgba(24,60,42,0.06); border:1px solid rgba(24,60,42,0.08);">
+            <div style="width:48px; height:48px; border-radius:50%; background:var(--matcha); display:grid; place-items:center; color:var(--forest); font-size:20px; margin-bottom:20px;">
+              <i class="fi fi-rr-leaf" aria-hidden="true"></i>
+            </div>
+            <h3 style="font-family:var(--display); font-size:22px; color:var(--forest); margin-bottom:12px;">Whole Leaf Integrity</h3>
+            <p style="color:#5f6b62; font-size:13.5px; line-height:1.75;">
+              We never use CTC dust or factory sweepings. We exclusively source whole unbroken leaves that unfurl naturally in hot water, releasing layered complexities.
+            </p>
+          </article>
+
+          <article class="reveal reveal-delay" style="background:#ffffff; border-radius:18px; padding:36px 30px; box-shadow:0 12px 35px rgba(24,60,42,0.06); border:1px solid rgba(24,60,42,0.08);">
+            <div style="width:48px; height:48px; border-radius:50%; background:#ead9bd; display:grid; place-items:center; color:var(--forest); font-size:20px; margin-bottom:20px;">
+              <i class="fi fi-rr-hand-holding-heart" aria-hidden="true"></i>
+            </div>
+            <h3 style="font-family:var(--display); font-size:22px; color:var(--forest); margin-bottom:12px;">Fair Farmer Partnerships</h3>
+            <p style="color:#5f6b62; font-size:13.5px; line-height:1.75;">
+              We pay premium prices directly to smallholder family growers in Sylhet and Panchagarh, ensuring living wages and community healthcare support.
+            </p>
+          </article>
+
+          <article class="reveal reveal-delay-2" style="background:#ffffff; border-radius:18px; padding:36px 30px; box-shadow:0 12px 35px rgba(24,60,42,0.06); border:1px solid rgba(24,60,42,0.08);">
+            <div style="width:48px; height:48px; border-radius:50%; background:#dfe6d5; display:grid; place-items:center; color:var(--forest); font-size:20px; margin-bottom:20px;">
+              <i class="fi fi-rr-flower" aria-hidden="true"></i>
+            </div>
+            <h3 style="font-family:var(--display); font-size:22px; color:var(--forest); margin-bottom:12px;">Natural Botanicals Only</h3>
+            <p style="color:#5f6b62; font-size:13.5px; line-height:1.75;">
+              Our blends use genuine whole ingredients — organic lemongrass, wild chamomile blossoms, crushed cardamom pods, and sun-dried verbena.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dhaka Tasting Room Feature -->
+    <section class="section">
+      <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+        <div class="reveal">
+          <p class="eyebrow"><i class="fi fi-rr-shop" aria-hidden="true"></i> Visit Us in Person</p>
+          <h2 style="font-size:clamp(38px, 4vw, 56px); margin:15px 0 20px;">The Gulshan 2<br><em>Tasting Sanctuary.</em></h2>
+          <p style="color:#576359; font-size:14px; line-height:1.8; margin-bottom:18px;">
+            Hidden away in Road 71 of Gulshan 2, our tasting room is an oasis of calm. Designed with lime-washed earth tones, acoustic timber, and low slate benches, visitors are invited to sit for quiet private cuppings.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:12px; font-size:13px; color:#3b463e; margin-bottom:28px;">
+            <div><strong>Location:</strong> House 14, Road 71, Gulshan 2, Dhaka 1212</div>
+            <div><strong>Tasting Hours:</strong> Tuesday – Sunday, 11:00 AM – 9:00 PM</div>
+            <div><strong>Reservations:</strong> hello@theteahouse.bd · +880 1700-000000</div>
+          </div>
+          <a class="btn btn-dark" href="collection.html">Order for Home Delivery <span><i class="fi fi-rr-arrow-right" aria-hidden="true"></i></span></a>
+        </div>
+        <div class="reveal reveal-delay" style="position:relative; border-radius:24px; overflow:hidden; box-shadow:0 30px 70px rgba(24,60,42,0.18);">
+          <img src="https://images.pexels.com/photos/10258207/pexels-photo-10258207.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dhaka tasting room table with warm tea and sunlight" style="width:100%; height:480px; object-fit:cover;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section section" id="philosophy">
+      <div class="container quote-inner reveal">
+        <p class="quote-eyebrow"><i class="fi fi-rr-leaf" aria-hidden="true"></i> Philosophy</p>
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          There is always time for tea.<br>
+          <em>There is not always time for hurry.</em>
+        </blockquote>
+        <div class="quote-line"></div>
+        <p class="quote-author">— The Tea House, Dhaka</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- 1st Column: Brand Logo in bigger size & Slogan -->
+      <div class="footer-col footer-col-brand">
+        <a class="brand footer-brand-lg" href="index.html" aria-label="The Tea House home">
+          <img class="brand-logo footer-logo-lg" src="logo.png" alt="The Tea House logo" width="60" height="60" />
+          <span class="brand-name">
+            <strong>The Tea House</strong>
+            <small>EST. 2012 · DHAKA</small>
+          </span>
+        </a>
+        <p class="footer-slogan">
+          Thoughtfully sourced, single-origin leaves and botanical blends crafted for unhurried moments.
+        </p>
+        <p class="footer-location">
+          Tasting Room · Road 71, Gulshan 2, Dhaka
+        </p>
+      </div>
+
+      <!-- 2nd Column: Navigation Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="collection.html">Tea Collection</a></li>
+          <li><a href="ritual.html">The Ritual</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="journal.html">From the Journal</a></li>
+          <li><a href="collection.html">Gift Sets &amp; Bundles</a></li>
+        </ul>
+      </div>
+
+      <!-- 3rd Column: Visit & Information Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">The Teahouse</h4>
+        <ul class="footer-links">
+          <li><a href="story.html">Visit the Tasting Room</a></li>
+          <li><a href="ritual.html">Brewing &amp; Steeping Guide</a></li>
+          <li><a href="collection.html">Seasonal Harvest Drops</a></li>
+          <li><a href="mailto:hello@theteahouse.bd">hello@theteahouse.bd</a></li>
+          <li><a href="tel:+8801700000000">+880 1700-000000</a></li>
+          <li><a href="story.html">Wholesale &amp; Private Tastings</a></li>
+        </ul>
+      </div>
+
+      <!-- 4th Column: Newsletter Subscribe + Big Social Media Icons -->
+      <div class="footer-col footer-col-subscribe">
+        <h4 class="footer-col-title">Quiet Dispatch</h4>
+        <p class="footer-sub-desc">First access to rare harvest drops, seasonal blends, and steeping notes.</p>
+        <form class="footer-newsletter-form">
+          <label for="footer-email" class="sr-only">Your email address</label>
+          <div class="footer-input-row">
+            <input id="footer-email" type="email" placeholder="Your email address" required />
+            <button type="submit" aria-label="Subscribe to newsletter">
+              <span>Join</span>
+              <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="footer-social-section">
+          <p class="footer-social-heading">Follow our journey</p>
+          <div class="footer-social-icons">
+            <a class="footer-social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fi fi-brands-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="fi fi-brands-facebook" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter">
+              <i class="fi fi-brands-twitter-alt" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="fi fi-brands-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2026 The Tea House Ltd. All rights reserved.</span>
+        <span class="footer-sep">·</span>
+        <a href="story.html#privacy">Privacy</a>
+        <span class="footer-sep">·</span>
+        <a href="story.html#terms">Terms</a>
+      </div>
+      <div class="footer-bottom-right">
+        <span>Made for slow moments.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Backdrop & Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart" aria-hidden="true">
+    <div class="cart-header">
+      <h3>
+        <i class="fi fi-rr-shopping-bag" aria-hidden="true"></i>
+        <span>Your Tea Bag</span>
+        <span class="cart-header-count" id="cartHeaderCount">0 items</span>
+      </h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+        <i class="fi fi-rr-cross" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="cart-shipping-banner" id="cartShippingBanner">
+      <div class="shipping-text" id="shippingText">
+        <span>Add <strong id="shippingRemaining"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 1,500</strong> for free delivery</span>
+        <span id="shippingPercent">0%</span>
+      </div>
+      <div class="shipping-bar-bg">
+        <div class="shipping-bar-fill" id="shippingBarFill"></div>
+      </div>
+    </div>
+
+    <div class="cart-body" id="cartItemsList"></div>
+
+    <div class="cart-footer" id="cartFooter">
+      <div class="promo-bar">
+        <input type="text" class="promo-input" id="promoInput" placeholder="Promo code (e.g. SLOWTEA10)" aria-label="Promo code" />
+        <button class="promo-btn" id="promoApplyBtn">Apply</button>
+      </div>
+      <div id="promoNotice" style="display:none;"></div>
+
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</strong>
+      </div>
+      <div class="cart-summary-row" id="cartDiscountRow" style="display:none;">
+        <span>Promo Discount</span>
+        <strong id="cartDiscount" style="color:#235831;">- <i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</strong>
+      </div>
+      <div class="cart-summary-row">
+        <span>Delivery Fee (Bangladesh)</span>
+        <span id="cartDelivery"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 60</span>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Estimated Total</span>
+        <strong id="cartTotal"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</strong>
+      </div>
+
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">
+        <span>Proceed to Checkout</span>
+        <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="checkout-modal-backdrop" id="checkoutModalBackdrop" aria-hidden="true">
+    <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="checkout-header">
+        <div>
+          <h2 id="checkoutTitle">Checkout &amp; Delivery</h2>
+          <p>Delivering fresh harvests carefully packaged across Bangladesh.</p>
+        </div>
+        <button class="cart-close-btn" id="checkoutCloseBtn" aria-label="Close checkout">
+          <i class="fi fi-rr-cross" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="checkout-body">
+        <form id="checkoutForm" novalidate>
+          <div class="checkout-grid">
+            <div class="checkout-col">
+              <h3 class="form-section-title"><i class="fi fi-rr-marker" aria-hidden="true"></i> 1. Delivery Details</h3>
+              <div class="field-group">
+                <label for="custName">Full Name *</label>
+                <input class="field-input" id="custName" type="text" placeholder="e.g. Tanvir Rahman" required />
+              </div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="custPhone">Contact Phone *</label>
+                  <input class="field-input" id="custPhone" type="tel" placeholder="017XXXXXXXX" required />
+                </div>
+                <div class="field-group">
+                  <label for="custCity">City / Region *</label>
+                  <select class="field-select" id="custCity" required>
+                    <option value="Dhaka (Inside City)">Dhaka (Inside City) — 24h</option>
+                    <option value="Dhaka (Suburbs - Uttara/Savar)">Dhaka (Suburbs) — 36h</option>
+                    <option value="Chattogram">Chattogram — 48h</option>
+                    <option value="Sylhet">Sylhet — 48h</option>
+                    <option value="Rajshahi">Rajshahi — 48h</option>
+                    <option value="Khulna">Khulna — 48h</option>
+                    <option value="Barishal">Barishal — 48h</option>
+                    <option value="Rangpur">Rangpur — 48h</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="custAddress">Delivery Address *</label>
+                <textarea class="field-textarea" id="custAddress" rows="3" placeholder="House no, road, apartment/area name" required></textarea>
+              </div>
+              <div class="field-group">
+                <label for="custNotes">Special Delivery Notes (Optional)</label>
+                <input class="field-input" id="custNotes" type="text" placeholder="e.g. Leave with building security, call upon arrival" />
+              </div>
+            </div>
+
+            <div class="checkout-col">
+              <h3 class="form-section-title"><i class="fi fi-rr-credit-card" aria-hidden="true"></i> 2. Payment Method</h3>
+              <div class="payment-selector">
+                <label class="payment-card-option selected" for="payCod">
+                  <input type="radio" name="paymentMethod" id="payCod" value="cod" checked />
+                  <div>
+                    <div class="payment-card-title"><i class="fi fi-rr-hand-holding-usd" aria-hidden="true"></i> Cash on Delivery</div>
+                    <div class="payment-card-desc">Pay in cash when your tea parcel arrives at your door.</div>
+                  </div>
+                  <span class="payment-badge badge-cod">CASH</span>
+                </label>
+
+                <label class="payment-card-option" for="payBkash">
+                  <input type="radio" name="paymentMethod" id="payBkash" value="bkash" />
+                  <div>
+                    <div class="payment-card-title"><i class="fi fi-rr-smartphone" aria-hidden="true"></i> bKash Payment</div>
+                    <div class="payment-card-desc">Instant mobile money transfer via bKash merchant.</div>
+                  </div>
+                  <span class="payment-badge badge-bkash">bKash</span>
+                </label>
+
+                <label class="payment-card-option" for="payNagad">
+                  <input type="radio" name="paymentMethod" id="payNagad" value="nagad" />
+                  <div>
+                    <div class="payment-card-title"><i class="fi fi-rr-mobile" aria-hidden="true"></i> Nagad Payment</div>
+                    <div class="payment-card-desc">Postal digital wallet transfer with low fee.</div>
+                  </div>
+                  <span class="payment-badge badge-nagad">Nagad</span>
+                </label>
+
+                <label class="payment-card-option" for="payCard">
+                  <input type="radio" name="paymentMethod" id="payCard" value="card" />
+                  <div>
+                    <div class="payment-card-title"><i class="fi fi-rr-credit-card" aria-hidden="true"></i> Credit / Debit Card</div>
+                    <div class="payment-card-desc">Visa, Mastercard, American Express &amp; UnionPay.</div>
+                  </div>
+                  <span class="payment-badge badge-card">CARD</span>
+                </label>
+              </div>
+
+              <div class="payment-subform" id="subformBkash" style="display:none;">
+                <p>Send payment to The Tea House Merchant Account: <code>01700-000000</code></p>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="bkashSender">Your bKash Number</label>
+                    <input class="field-input" id="bkashSender" type="tel" placeholder="01XXXXXXXXX" />
+                  </div>
+                  <div class="field-group">
+                    <label for="bkashTrx">Transaction ID (TrxID)</label>
+                    <input class="field-input" id="bkashTrx" type="text" placeholder="e.g. 9HJ4B8L2" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="payment-subform" id="subformNagad" style="display:none;">
+                <p>Send payment to The Tea House Merchant Account: <code>01700-000000</code></p>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="nagadSender">Your Nagad Number</label>
+                    <input class="field-input" id="nagadSender" type="tel" placeholder="01XXXXXXXXX" />
+                  </div>
+                  <div class="field-group">
+                    <label for="nagadTrx">Transaction ID (TrxID)</label>
+                    <input class="field-input" id="nagadTrx" type="text" placeholder="e.g. 8FG2M4K9" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="payment-subform" id="subformCard" style="display:none;">
+                <div class="field-group">
+                  <label for="cardName">Cardholder Name</label>
+                  <input class="field-input" id="cardName" type="text" placeholder="Name on card" />
+                </div>
+                <div class="field-group">
+                  <label for="cardNumber">Card Number</label>
+                  <input class="field-input" id="cardNumber" type="text" maxlength="19" placeholder="4111 2222 3333 4444" />
+                </div>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="cardExpiry">Expiry (MM/YY)</label>
+                    <input class="field-input" id="cardExpiry" type="text" maxlength="5" placeholder="12/28" />
+                  </div>
+                  <div class="field-group">
+                    <label for="cardCvc">CVV / CVC</label>
+                    <input class="field-input" id="cardCvc" type="password" maxlength="4" placeholder="123" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-mini-summary">
+                <div class="mini-row"><span>Selected items:</span><span id="checkoutItemCount">0 items</span></div>
+                <div class="mini-row"><span>Subtotal:</span><span id="checkoutSubtotal"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</span></div>
+                <div class="mini-row" id="checkoutDiscountRow" style="display:none;"><span>Discount:</span><span id="checkoutDiscount" style="color:#235831;">- <i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</span></div>
+                <div class="mini-row"><span>Delivery:</span><span id="checkoutDelivery"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 60</span></div>
+                <div class="mini-row total"><span>Total Payable:</span><strong id="checkoutTotal"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</strong></div>
+              </div>
+
+              <button type="submit" class="checkout-submit-btn" id="confirmOrderBtn">
+                <i class="fi fi-rr-check" aria-hidden="true"></i>
+                <span id="confirmOrderBtnText">Confirm Order</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="order-modal-backdrop" id="orderModalBackdrop" aria-hidden="true">
+    <div class="order-receipt" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+      <div class="receipt-check"><i class="fi fi-rr-check" aria-hidden="true"></i></div>
+      <h2 id="receiptTitle">Order Placed Successfully!</h2>
+      <p class="order-receipt-desc">Thank you for slowing down with us. Your harvest has been received and is being carefully packaged.</p>
+
+      <div class="order-ticket">
+        <div class="ticket-row"><span>Order Reference:</span><strong id="receiptOrderNum">#TH-94821</strong></div>
+        <div class="ticket-row"><span>Estimated Delivery:</span><strong id="receiptEta">Within 24–48 hours (Dhaka)</strong></div>
+        <div class="ticket-row"><span>Delivery To:</span><strong id="receiptCustomer">Customer Name</strong></div>
+        <div class="ticket-row"><span>Payment Status:</span><strong id="receiptPayment">Cash on Delivery</strong></div>
+        <div class="ticket-items" id="receiptItems"></div>
+        <div class="ticket-row" style="margin-top:10px; font-size:14px; font-weight:700;"><span>Total Amount:</span><strong id="receiptTotal" style="color:var(--forest);"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 0</strong></div>
+      </div>
+
+      <div class="receipt-actions">
+        <button class="btn-receipt-print" id="receiptPrintBtn"><i class="fi fi-rr-print" aria-hidden="true"></i> <span>Print Receipt</span></button>
+        <button class="btn-receipt-done" id="receiptDoneBtn"><span>Back to Tea House</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

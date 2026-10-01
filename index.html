@@ -1,414 +1,840 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-        <title>Tea-House</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        container: {
-                            center: true,
-                            padding: '1.5rem',
-                        },
-                    },
-                },
-            }
-        </script>
-        <style>
-            * {
-                font-family: "Outfit", sans-serif;
-            }
-        </style>
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A refined tea house experience — carefully selected teas, botanical blends, and slow moments." />
+  <title>The Tea House — Slow Down. Sip Better.</title>
 
-    <body class="bg-white">
-        <main class="bg-transparent">
-            <!-- 1440px 1100px -->
-            <section
-                class="container mx-auto w-[90%] lg:w-[76%] grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 lg:py-12 items-center">
-                <div
-                    class="mt-10 md:mt-14 lg:mt-3 space-y-6 lg:space-y-[50px] text-center lg:text-left order-2 lg:order-1">
-                    <h1
-                        class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 leading-tight lg:leading-[75px]">
-                        It's good <br class="hidden lg:block">tea time at <br class="hidden lg:block"> The Tea House
-                    </h1>
-                    <p class="w-full lg:w-[400px] mx-auto lg:mx-0 tracking-wide text-base text-gray-600 leading-[30px]">
-                        Tea and Botanical Solutions Supplier Give Optimum Satisfaction To Your Taste Buds.
-                    </p>
-                    <button type="button"
-                        class="w-full sm:w-1/2 lg:w-1/3 bg-gradient-to-r from-amber-500 to-orange-600 py-4 rounded-lg text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity">
-                        Explore More
-                        <span class="ml-3 -rotate-45 inline-block">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </button>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Delius&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (strictly used for Bangladeshi Taka icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Flaticon UIcons (used for all graphic & UI icons) -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="announcement">
+    <p>Free delivery on orders over <i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 1,500</p>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="The Tea House home">
+        <img class="brand-logo" src="logo.png" alt="The Tea House logo" width="44" height="44" />
+        <span>
+          <strong>The Tea House</strong>
+          <small>EST. 2012 · DHAKA</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="story.html">Our Story</a>
+        <a href="collection.html">Tea Collection</a>
+        <a href="ritual.html">The Ritual</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="journal.html">Journal</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-trigger" id="cartTrigger" aria-label="View tea bag" title="View your tea bag">
+          <i class="fi fi-rr-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <a class="nav-cta" href="collection.html">Shop Now <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grain"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><i class="fi fi-rr-leaf" aria-hidden="true"></i> Handpicked &amp; slow-crafted</p>
+          <h1>Good tea makes<br><em>time feel slower.</em></h1>
+          <p class="hero-text">
+            A quiet collection of leaves, botanicals and blends chosen for the way
+            they make ordinary moments feel a little more intentional.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#collection">Explore the collection <span><i class="fi fi-rr-arrow-right" aria-hidden="true"></i></span></a>
+            <a class="text-link" href="#story">Discover our story <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>24</strong><span>tea varieties</span></div>
+            <div><strong>12+</strong><span>origin regions</span></div>
+            <div><strong>4.9</strong><span><i class="fi fi-rr-star" aria-hidden="true"></i> tea lovers' rating</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay">
+          <div class="hero-orbit"></div>
+          <div class="hero-image-wrap">
+            <img src="https://images.pexels.com/photos/4390022/pexels-photo-4390022.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Freshly brewed tea" />
+          </div>
+          <div class="floating-note">
+            <span class="leaf-icon"><i class="fi fi-rr-leaf" aria-hidden="true"></i></span>
+            <div>
+              <small>Today's ritual</small>
+              <strong>Jasmine Green</strong>
+            </div>
+            <span class="arrow-circle"><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span>
+          </div>
+          <div class="hero-chip chip-a"><img src="https://images.pexels.com/photos/8329295/pexels-photo-8329295.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Tea with spices and flowers on a tray" /></div>
+          <div class="hero-chip chip-b"><img src="https://images.pexels.com/photos/38410813/pexels-photo-38410813.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Steaming mugs of tea on a tray" /></div>
+          <div class="vertical-label">TEA · BOTANICALS · RITUAL</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Tea house values">
+      <div class="container">
+        <div class="marquee-track">
+          <span>Single origin</span><b><i class="fi fi-rr-leaf" aria-hidden="true"></i></b>
+          <span>Small batch</span><b><i class="fi fi-rr-leaf" aria-hidden="true"></i></b>
+          <span>Natural botanicals</span><b><i class="fi fi-rr-leaf" aria-hidden="true"></i></b>
+          <span>Thoughtfully blended</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection with Scroll-Trigger Pin Track -->
+    <div class="collection-scroll-track" id="collectionTrack">
+      <section class="section collection" id="collection">
+        <div class="collection-sticky-inner">
+          <!-- Heading & Controls inside container width -->
+          <div class="container collection-header-container">
+            <div class="section-heading reveal">
+              <div>
+                <p class="eyebrow"><i class="fi fi-rr-mug-hot" aria-hidden="true"></i> The collection</p>
+                <h2>Leaves worth<br><em>lingering over.</em></h2>
+              </div>
+              <p>From bright morning greens to deep evening infusions, every blend has its own rhythm.</p>
+            </div>
+
+            <div class="collection-controls">
+              <div class="filter-row" role="tablist" aria-label="Tea categories">
+                <button class="filter active" data-filter="all">All teas</button>
+                <button class="filter" data-filter="green">Green</button>
+                <button class="filter" data-filter="black">Black</button>
+                <button class="filter" data-filter="herbal">Herbal</button>
+                <button class="filter" data-filter="oolong">Oolong</button>
+                <button class="filter" data-filter="white">White</button>
+              </div>
+              <div class="slider-nav" aria-label="Slider controls">
+                <button class="slider-btn prev" id="sliderPrev" aria-label="Previous tea cards"><i class="fi fi-rr-angle-small-left" aria-hidden="true"></i></button>
+                <button class="slider-btn next" id="sliderNext" aria-label="Next tea cards"><i class="fi fi-rr-angle-small-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+
+        <div class="product-slider-wrapper">
+          <div class="product-slider" id="productSlider">
+            <!-- Card 1: Jasmine Green -->
+            <article class="product-card reveal" data-id="tea-jasmine-green" data-name="Jasmine Green" data-price="680" data-category="green" data-type="Green Tea" data-image="https://images.pexels.com/photos/12338992/pexels-photo-12338992.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image sage">
+                <span class="product-tag">Bestseller</span>
+                <img src="https://images.pexels.com/photos/12338992/pexels-photo-12338992.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Jasmine Green Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Jasmine Green Tea to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">GREEN TEA</p><h3>Jasmine Green</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 680</strong>
+              </div>
+              <p class="product-desc">Fresh, floral and quietly sweet with a clean, delicate finish.</p>
+            </article>
+
+            <!-- Card 2: Royal Breakfast -->
+            <article class="product-card reveal reveal-delay" data-id="tea-royal-breakfast" data-name="Royal Breakfast" data-price="620" data-category="black" data-type="Black Tea" data-image="https://images.pexels.com/photos/10776408/pexels-photo-10776408.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image amber">
+                <span class="product-tag">House favourite</span>
+                <img src="https://images.pexels.com/photos/10776408/pexels-photo-10776408.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Royal Black Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Royal Black Tea to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">BLACK TEA</p><h3>Royal Breakfast</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 620</strong>
+              </div>
+              <p class="product-desc">Full-bodied Assam character with a warm malty finish.</p>
+            </article>
+
+            <!-- Card 3: Lemon Verbena -->
+            <article class="product-card reveal" data-id="tea-lemon-verbena" data-name="Lemon Verbena" data-price="590" data-category="herbal" data-type="Botanical" data-image="https://images.pexels.com/photos/29632082/pexels-photo-29632082.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image cream">
+                <span class="product-tag">Caffeine free</span>
+                <img src="https://images.pexels.com/photos/29632082/pexels-photo-29632082.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Lemon Botanical Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Lemon Botanical Tea to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">BOTANICAL</p><h3>Lemon Verbena</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 590</strong>
+              </div>
+              <p class="product-desc">Citrusy, delicate and made for an unhurried afternoon pause.</p>
+            </article>
+
+            <!-- Card 4: Spiced Milk Tea -->
+            <article class="product-card reveal reveal-delay" data-id="tea-spiced-milk" data-name="Spiced Milk Tea" data-price="540" data-category="black" data-type="Black Tea" data-image="https://images.pexels.com/photos/8329861/pexels-photo-8329861.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image clay">
+                <span class="product-tag">New blend</span>
+                <img src="https://images.pexels.com/photos/8329861/pexels-photo-8329861.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Creamy Spiced Milk Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Spiced Milk Tea to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">BLACK TEA</p><h3>Spiced Milk Tea</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 540</strong>
+              </div>
+              <p class="product-desc">Comforting black tea layered with cardamom and spice.</p>
+            </article>
+
+            <!-- Card 5: Silver Needle White (New Card 5) -->
+            <article class="product-card reveal" data-id="tea-silver-needle" data-name="Silver Needle White" data-price="850" data-category="white" data-type="White Tea" data-image="https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image mist">
+                <span class="product-tag">Single estate</span>
+                <img src="https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Silver Needle White Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Silver Needle White to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">WHITE TEA</p><h3>Silver Needle White</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 850</strong>
+              </div>
+              <p class="product-desc">Sun-dried downy buds yielding velvety notes of honeysuckle and melon.</p>
+            </article>
+
+            <!-- Card 6: Himalayan Golden Oolong (New Card 6) -->
+            <article class="product-card reveal reveal-delay" data-id="tea-golden-oolong" data-name="Himalayan Golden Oolong" data-price="780" data-category="oolong" data-type="Oolong Tea" data-image="https://images.pexels.com/photos/28448494/pexels-photo-28448494.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image terracotta">
+                <span class="product-tag">Reserve lot</span>
+                <img src="https://images.pexels.com/photos/28448494/pexels-photo-28448494.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Himalayan Golden Oolong Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Himalayan Golden Oolong to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">OOLONG TEA</p><h3>Golden Oolong</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 780</strong>
+              </div>
+              <p class="product-desc">Medium roasted high-mountain leaf with honeyed apricot aroma.</p>
+            </article>
+
+            <!-- Card 7: Chamomile Lavender Bloom (New Card 7) -->
+            <article class="product-card reveal" data-id="tea-chamomile-lavender" data-name="Chamomile Lavender Bloom" data-price="560" data-category="herbal" data-type="Botanical" data-image="https://images.pexels.com/photos/19826009/pexels-photo-19826009.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image lavender">
+                <span class="product-tag">Organic blend</span>
+                <img src="https://images.pexels.com/photos/19826009/pexels-photo-19826009.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Chamomile Lavender Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Chamomile Lavender to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">BOTANICAL</p><h3>Chamomile Bloom</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 560</strong>
+              </div>
+              <p class="product-desc">Whole golden chamomile paired with French lavender for calming evenings.</p>
+            </article>
+
+            <!-- Card 8: Smoked Lapsang Pine (New Card 8) -->
+            <article class="product-card reveal reveal-delay" data-id="tea-smoked-lapsang" data-name="Smoked Lapsang Pine" data-price="690" data-category="black" data-type="Black Tea" data-image="https://images.pexels.com/photos/227908/pexels-photo-227908.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image moss">
+                <span class="product-tag">Heritage harvest</span>
+                <img src="https://images.pexels.com/photos/227908/pexels-photo-227908.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Smoked Lapsang Pine Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Smoked Lapsang Pine to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">BLACK TEA</p><h3>Smoked Lapsang</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 690</strong>
+              </div>
+              <p class="product-desc">Traditional pine smoke roasted leaves with hints of dried longan wood.</p>
+            </article>
+
+            <!-- Card 9: Darjeeling First Flush -->
+            <article class="product-card reveal" data-id="tea-darjeeling-flush" data-name="Darjeeling First Flush" data-price="920" data-category="green" data-type="Green Tea" data-image="https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=900">
+              <div class="product-image mist">
+                <span class="product-tag">Spring harvest</span>
+                <img src="https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Darjeeling First Flush Tea" loading="lazy" />
+                <button class="quick-add" aria-label="Add Darjeeling First Flush to cart"><i class="fi fi-rr-plus" aria-hidden="true"></i></button>
+              </div>
+              <div class="product-info">
+                <div><p class="product-type">GREEN TEA</p><h3>Darjeeling Flush</h3></div>
+                <strong><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 920</strong>
+              </div>
+              <p class="product-desc">Light, muscatel spring leaves with a delicate floral and grassy brightness.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Stacked Sections: Story -> Gallery -> Ritual -->
+  <div class="stacked-deck" id="stackedDeck">
+    <section class="story section" id="story">
+      <div class="container story-grid">
+        <div class="story-collage reveal">
+          <div class="collage-main">
+            <img src="https://images.pexels.com/photos/5635372/pexels-photo-5635372.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tea preparation" />
+          </div>
+          <div class="collage-small">
+            <img src="https://images.pexels.com/photos/17928232/pexels-photo-17928232.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Fresh tea leaves" />
+          </div>
+          <div class="collage-stamp">FROM<br>LEAF<br>TO CUP</div>
+        </div>
+
+        <div class="story-copy reveal reveal-delay">
+          <p class="eyebrow"><i class="fi fi-rr-leaf" aria-hidden="true"></i> Our philosophy</p>
+          <h2>Tea is not a<br><em>thing to rush.</em></h2>
+          <p>
+            We started The Tea House with a simple belief: a good cup should
+            create a pause. We source characterful leaves and natural botanicals,
+            then blend them with restraint so the ingredient — not the process —
+            stays at the centre.
+          </p>
+          <p>
+            No loud flavours. No unnecessary ingredients. Just tea that rewards
+            the extra minute.
+          </p>
+          <a class="text-link dark" href="#ritual">How we brew <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow"><i class="fi fi-rr-camera" aria-hidden="true"></i> The gallery</p>
+            <h2>Moments worth<br><em>steeping in.</em></h2>
+          </div>
+          <p>Steam, light and a quiet table. A few frames from the slow side of the day.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="g1 reveal"><img src="https://images.pexels.com/photos/10258207/pexels-photo-10258207.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Autumn pour" loading="lazy" /><figcaption>Autumn pour</figcaption></figure>
+          <figure class="g2 reveal"><img src="https://images.pexels.com/photos/17286803/pexels-photo-17286803.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Hand-poured, always" loading="lazy" /><figcaption>Hand-poured, always</figcaption></figure>
+          <figure class="g3 reveal"><img src="https://images.pexels.com/photos/5946807/pexels-photo-5946807.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Black tea, glass cup" loading="lazy" /><figcaption>Black tea, glass cup</figcaption></figure>
+          <figure class="g4 reveal"><img src="https://images.pexels.com/photos/14668682/pexels-photo-14668682.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Candlelight steep" loading="lazy" /><figcaption>Candlelight steep</figcaption></figure>
+          <figure class="g5 reveal"><img src="https://images.pexels.com/photos/31474385/pexels-photo-31474385.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A table of botanicals" loading="lazy" /><figcaption>A table of botanicals</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="ritual section" id="ritual">
+      <div class="container">
+        <div class="ritual-head reveal">
+          <p class="eyebrow light"><i class="fi fi-rr-sparkles" aria-hidden="true"></i> The tea ritual</p>
+          <h2>A better cup starts<br>with <em>slowing down.</em></h2>
+          <p>Three small steps. No ceremony required.</p>
+        </div>
+
+        <div class="ritual-grid">
+          <div class="ritual-step reveal">
+            <span>01</span>
+            <div class="ritual-photo"><img src="https://images.pexels.com/photos/6694154/pexels-photo-6694154.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Dried herbs on wooden spoons" loading="lazy" /><b><i class="fi fi-rr-leaf" aria-hidden="true"></i></b></div>
+            <h3>Choose your leaf</h3>
+            <p>Match the tea to your mood, not the clock. Bright, bold or botanical.</p>
+          </div>
+          <div class="ritual-step reveal reveal-delay">
+            <span>02</span>
+            <div class="ritual-photo"><img src="https://images.pexels.com/photos/11285384/pexels-photo-11285384.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Two cups of tea by a rainy window" loading="lazy" /><b><i class="fi fi-rr-clock" aria-hidden="true"></i></b></div>
+            <h3>Give it time</h3>
+            <p>Use fresh water and let the leaves open naturally. Good things unfold.</p>
+          </div>
+          <div class="ritual-step reveal reveal-delay-2">
+            <span>03</span>
+            <div class="ritual-photo"><img src="https://images.pexels.com/photos/28836251/pexels-photo-28836251.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Herbal tea on a sunlit windowsill" loading="lazy" /><b><i class="fi fi-rr-mug-hot" aria-hidden="true"></i></b></div>
+            <h3>Take the pause</h3>
+            <p>Put the phone down. Notice the aroma. Let the first sip arrive slowly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="quote-section section" id="philosophy">
+      <div class="container quote-inner reveal">
+        <p class="quote-eyebrow"><i class="fi fi-rr-leaf" aria-hidden="true"></i> Philosophy</p>
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          There is always time for tea.<br>
+          <em>There is not always time for hurry.</em>
+        </blockquote>
+        <div class="quote-line"></div>
+        <p class="quote-author">— The Tea House, Dhaka</p>
+      </div>
+    </section>
+
+    <section class="journal section" id="journal">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow"><i class="fi fi-rr-book-alt" aria-hidden="true"></i> From the journal</p>
+            <h2>Notes for<br><em>slower days.</em></h2>
+          </div>
+          <a class="text-link dark" href="#">View all notes <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+        </div>
+
+        <div class="journal-grid">
+          <article class="journal-card featured reveal">
+            <div class="journal-image">
+              <img src="https://images.pexels.com/photos/4390022/pexels-photo-4390022.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Tea brewing guide" />
+              <span>GUIDE</span>
+            </div>
+            <div class="journal-copy">
+              <small>06 MIN READ · 18 SEP 2026</small>
+              <h3>How to make your everyday cup taste extraordinary</h3>
+              <a href="#">Read story <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+            </div>
+          </article>
+
+          <article class="journal-card reveal reveal-delay">
+            <div class="journal-image"><img src="https://images.pexels.com/photos/28448494/pexels-photo-28448494.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Tea blends on wooden spoons" loading="lazy" /><span>NOTES</span></div>
+            <div class="journal-copy">
+              <small>TEA NOTES · 12 SEP 2026</small>
+              <h3>Why Assam black tea tastes the way it does</h3>
+              <p>A short guide to body, malt, tannin and the character of the leaf.</p>
+              <a href="#">Read story <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+            </div>
+          </article>
+
+          <article class="journal-card dark-card reveal reveal-delay-2">
+            <div class="journal-image"><img src="https://images.pexels.com/photos/19826009/pexels-photo-19826009.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Tea cup with floating daffodils" loading="lazy" /><span>BOTANICALS</span></div>
+            <div class="journal-copy">
+              <small>BOTANICALS · 02 SEP 2026</small>
+              <h3>The quiet comfort of lemon verbena</h3>
+              <p>Bright citrus notes, no caffeine, and a very good reason to slow down.</p>
+              <a href="#">Read story <span><i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter-inner">
+          <div>
+            <p class="eyebrow light"><i class="fi fi-rr-envelope" aria-hidden="true"></i> A note in your inbox</p>
+            <h2>Make room for<br><em>better tea.</em></h2>
+          </div>
+          <form class="newsletter-form">
+            <label for="email">Your email address</label>
+            <div class="input-row">
+              <input id="email" type="email" placeholder="you@example.com" required />
+              <button type="submit">Join <span><i class="fi fi-rr-arrow-right" aria-hidden="true"></i></span></button>
+            </div>
+            <small>No noise. Just tea notes, new blends and occasional offers.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- 1st Column: Brand Logo in bigger size & Slogan -->
+      <div class="footer-col footer-col-brand">
+        <a class="brand footer-brand-lg" href="#top" aria-label="The Tea House home">
+          <img class="brand-logo footer-logo-lg" src="logo.png" alt="The Tea House logo" width="60" height="60" />
+          <span class="brand-name">
+            <strong>The Tea House</strong>
+            <small>EST. 2012 · DHAKA</small>
+          </span>
+        </a>
+        <p class="footer-slogan">
+          Thoughtfully sourced, single-origin leaves and botanical blends crafted for unhurried moments.
+        </p>
+        <p class="footer-location">
+          Tasting Room · Road 71, Gulshan 2, Dhaka
+        </p>
+      </div>
+
+      <!-- 2nd Column: Navigation Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="collection.html">Tea Collection</a></li>
+          <li><a href="ritual.html">The Ritual</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="journal.html">From the Journal</a></li>
+          <li><a href="collection.html">Gift Sets &amp; Bundles</a></li>
+        </ul>
+      </div>
+
+      <!-- 3rd Column: Visit & Information Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">The Teahouse</h4>
+        <ul class="footer-links">
+          <li><a href="story.html">Visit the Tasting Room</a></li>
+          <li><a href="ritual.html">Brewing &amp; Steeping Guide</a></li>
+          <li><a href="collection.html">Seasonal Harvest Drops</a></li>
+          <li><a href="mailto:hello@theteahouse.bd">hello@theteahouse.bd</a></li>
+          <li><a href="tel:+8801700000000">+880 1700-000000</a></li>
+          <li><a href="story.html">Wholesale &amp; Private Tastings</a></li>
+        </ul>
+      </div>
+
+      <!-- 4th Column: Newsletter Subscribe + Big Social Media Icons (NO CIRCLE DIVS) -->
+      <div class="footer-col footer-col-subscribe">
+        <h4 class="footer-col-title">Quiet Dispatch</h4>
+        <p class="footer-sub-desc">First access to rare harvest drops, seasonal blends, and steeping notes.</p>
+        <form class="footer-newsletter-form">
+          <label for="footer-email" class="sr-only">Your email address</label>
+          <div class="footer-input-row">
+            <input id="footer-email" type="email" placeholder="Your email address" required />
+            <button type="submit" aria-label="Subscribe to newsletter">
+              <span>Join</span>
+              <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="footer-social-section">
+          <p class="footer-social-heading">Follow our journey</p>
+          <div class="footer-social-icons">
+            <a class="footer-social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fi fi-brands-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="fi fi-brands-facebook" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter">
+              <i class="fi fi-brands-twitter-alt" aria-hidden="true"></i>
+            </a>
+            <a class="footer-social-link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="fi fi-brands-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2026 The Tea House Ltd. All rights reserved.</span>
+        <span class="footer-sep">·</span>
+        <a href="story.html#privacy">Privacy</a>
+        <span class="footer-sep">·</span>
+        <a href="story.html#terms">Terms</a>
+      </div>
+      <div class="footer-bottom-right">
+        <span>Made for slow moments.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Backdrop & Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart" aria-hidden="true">
+    <div class="cart-header">
+      <h3>
+        <i class="fi fi-rr-shopping-bag" aria-hidden="true"></i>
+        <span>Your Tea Bag</span>
+        <span class="cart-header-count" id="cartHeaderCount">0 items</span>
+      </h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+        <i class="fi fi-rr-cross" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="cart-shipping-banner" id="cartShippingBanner">
+      <div class="shipping-text" id="shippingText">
+        <span>Add <strong id="shippingRemaining"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 1,500</strong> for free delivery</span>
+        <span id="shippingPercent">0%</span>
+      </div>
+      <div class="shipping-bar-bg">
+        <div class="shipping-bar-fill" id="shippingBarFill"></div>
+      </div>
+    </div>
+
+    <div class="cart-body" id="cartItemsList">
+      <!-- Items dynamically populated via JS -->
+    </div>
+
+    <div class="cart-footer" id="cartFooter">
+      <div class="promo-bar">
+        <input type="text" class="promo-input" id="promoInput" placeholder="Promo code (e.g. SLOWTEA10)" aria-label="Promo code" />
+        <button class="promo-btn" id="promoApplyBtn">Apply</button>
+      </div>
+      <div id="promoNotice" style="display:none;"></div>
+
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</strong>
+      </div>
+      <div class="cart-summary-row" id="cartDiscountRow" style="display:none;">
+        <span>Promo Discount</span>
+        <strong id="cartDiscount" style="color:#235831;">- <i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</strong>
+      </div>
+      <div class="cart-summary-row">
+        <span>Delivery Fee (Bangladesh)</span>
+        <span id="cartDelivery"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 60</span>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Estimated Total</span>
+        <strong id="cartTotal"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</strong>
+      </div>
+
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">
+        <span>Proceed to Checkout</span>
+        <i class="fi fi-rr-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="checkout-modal-backdrop" id="checkoutModalBackdrop" aria-hidden="true">
+    <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="checkout-header">
+        <div>
+          <h2 id="checkoutTitle">Checkout &amp; Delivery</h2>
+          <p>Delivering fresh harvests carefully packaged across Bangladesh.</p>
+        </div>
+        <button class="cart-close-btn" id="checkoutCloseBtn" aria-label="Close checkout">
+          <i class="fi fi-rr-cross" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="checkout-body">
+        <form id="checkoutForm" novalidate>
+          <div class="checkout-grid">
+            <!-- Left: Delivery Details -->
+            <div class="checkout-col">
+              <h3 class="form-section-title"><i class="fi fi-rr-marker" aria-hidden="true"></i> 1. Delivery Details</h3>
+
+              <div class="field-group">
+                <label for="custName">Full Name *</label>
+                <input class="field-input" id="custName" type="text" placeholder="e.g. Tanvir Rahman" required />
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="custPhone">Contact Phone *</label>
+                  <input class="field-input" id="custPhone" type="tel" placeholder="017XXXXXXXX" required />
                 </div>
-
-                <div class="relative banner-right w-full max-w-[655px] mx-auto order-1 lg:order-2">
-                    <img src="./images/banner.png" alt="Tea House Banner" class="w-full h-auto">
-
-                    <div
-                        class="absolute w-[200px] md:w-[250px] flex gap-3 md:gap-4 py-3 md:py-3 px-4 justify-center items-center rounded-xl bg-white shadow-2xl left-[29%] lg:left-[27%] bottom-[-10%] lg:top-[80%]">
-                        <img src="./images/rating.png" alt="Rating Stars" class="w-10 md:w-auto">
-                        <div>
-                            <h3 class="text-gray-800 font-bold text-xl md:text-3xl">5.00</h3>
-                            <p class="text-gray-400 text-xs md:text-base">Trust Pilot Ratings</p>
-                        </div>
-                    </div>
+                <div class="field-group">
+                  <label for="custCity">City / Region *</label>
+                  <select class="field-select" id="custCity" required>
+                    <option value="Dhaka (Inside City)">Dhaka (Inside City) — 24h</option>
+                    <option value="Dhaka (Suburbs - Uttara/Savar)">Dhaka (Suburbs) — 36h</option>
+                    <option value="Chattogram">Chattogram — 48h</option>
+                    <option value="Sylhet">Sylhet — 48h</option>
+                    <option value="Rajshahi">Rajshahi — 48h</option>
+                    <option value="Khulna">Khulna — 48h</option>
+                    <option value="Barishal">Barishal — 48h</option>
+                    <option value="Rangpur">Rangpur — 48h</option>
+                  </select>
                 </div>
-            </section>
+              </div>
 
-            <!-- card section -->
-            <section class="container lg:max-w-[88%] mx-auto px-4 py-12 lg:mt-14 lg:mb-14">
-                <div class="w-full lg:max-w-[76%] text-center mx-auto mb-10">
-                    <h2
-                        class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-800 leading-[50px] lg:leading-[55px]">
-                        Our Featured Products
-                    </h2>
-                    <p
-                        class="max-w-[800px] mx-auto tracking-wide text-base md:text-base mt-4 text-gray-600 leading-relaxed">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words.
-                    </p>
+              <div class="field-group">
+                <label for="custAddress">Delivery Address *</label>
+                <textarea class="field-textarea" id="custAddress" rows="3" placeholder="House no, road, apartment/area name" required></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="custNotes">Special Delivery Notes (Optional)</label>
+                <input class="field-input" id="custNotes" type="text" placeholder="e.g. Leave with building security, call upon arrival" />
+              </div>
+            </div>
+
+            <!-- Right: Payment Methods & Order Summary -->
+            <div class="checkout-col">
+              <h3 class="form-section-title"><i class="fi fi-rr-credit-card" aria-hidden="true"></i> 2. Payment Method</h3>
+
+              <div class="payment-selector">
+                <label class="payment-card-option selected" for="payCod">
+                  <input type="radio" name="paymentMethod" id="payCod" value="cod" checked />
+                  <div>
+                    <div class="payment-card-title">
+                      <i class="fi fi-rr-hand-holding-usd" aria-hidden="true"></i>
+                      Cash on Delivery
+                    </div>
+                    <div class="payment-card-desc">Pay in cash when your tea parcel arrives at your door.</div>
+                  </div>
+                  <span class="payment-badge badge-cod">CASH</span>
+                </label>
+
+                <label class="payment-card-option" for="payBkash">
+                  <input type="radio" name="paymentMethod" id="payBkash" value="bkash" />
+                  <div>
+                    <div class="payment-card-title">
+                      <i class="fi fi-rr-smartphone" aria-hidden="true"></i>
+                      bKash Payment
+                    </div>
+                    <div class="payment-card-desc">Instant mobile money transfer via bKash merchant.</div>
+                  </div>
+                  <span class="payment-badge badge-bkash">bKash</span>
+                </label>
+
+                <label class="payment-card-option" for="payNagad">
+                  <input type="radio" name="paymentMethod" id="payNagad" value="nagad" />
+                  <div>
+                    <div class="payment-card-title">
+                      <i class="fi fi-rr-mobile" aria-hidden="true"></i>
+                      Nagad Payment
+                    </div>
+                    <div class="payment-card-desc">Postal digital wallet transfer with low fee.</div>
+                  </div>
+                  <span class="payment-badge badge-nagad">Nagad</span>
+                </label>
+
+                <label class="payment-card-option" for="payCard">
+                  <input type="radio" name="paymentMethod" id="payCard" value="card" />
+                  <div>
+                    <div class="payment-card-title">
+                      <i class="fi fi-rr-credit-card" aria-hidden="true"></i>
+                      Credit / Debit Card
+                    </div>
+                    <div class="payment-card-desc">Visa, Mastercard, American Express &amp; UnionPay.</div>
+                  </div>
+                  <span class="payment-badge badge-card">CARD</span>
+                </label>
+              </div>
+
+              <!-- Dynamic subforms -->
+              <div class="payment-subform" id="subformBkash" style="display:none;">
+                <p>Send payment to The Tea House Merchant Account: <code>01700-000000</code></p>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="bkashSender">Your bKash Number</label>
+                    <input class="field-input" id="bkashSender" type="tel" placeholder="01XXXXXXXXX" />
+                  </div>
+                  <div class="field-group">
+                    <label for="bkashTrx">Transaction ID (TrxID)</label>
+                    <input class="field-input" id="bkashTrx" type="text" placeholder="e.g. 9HJ4B8L2" />
+                  </div>
                 </div>
+              </div>
 
-                <div class="w-full lg:w-[86%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-4">
-
-                    <div
-                        class="bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg transform transition-transform hover:scale-105">
-                        <img src="./images/tea-1.png" alt="Milk Tea" class="mx-auto mb-4">
-                        <h4 class="text-xl text-gray-800 font-semibold">Milk Tea</h4>
-                        <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
-                    </div>
-
-                    <div
-                        class="bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg transform transition-transform hover:scale-105">
-                        <img src="./images/tea-2.png" alt="Green Tea" class="mx-auto mb-4">
-                        <h4 class="text-xl text-gray-800 font-semibold">Green Tea</h4>
-                        <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
-                    </div>
-
-                    <div
-                        class="bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg transform transition-transform hover:scale-105">
-                        <img src="./images/tea-3.png" alt="Lemon Tea" class="mx-auto mb-4">
-                        <h4 class="text-xl text-gray-800 font-semibold">Lemon Tea</h4>
-                        <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
-                    </div>
-
-                    <div
-                        class="bg-gradient-to-t from-gray-100 to-gray-200/90 rounded-xl text-center p-8 shadow-lg transform transition-transform hover:scale-105">
-                        <img src="./images/tea-4.png" alt="Black Tea" class="mx-auto mb-4">
-                        <h4 class="text-xl text-gray-800 font-semibold">Black Tea</h4>
-                        <p class="text-gray-500 text-sm mt-2">Creamer could be replaced by fresh milk</p>
-                    </div>
-
+              <div class="payment-subform" id="subformNagad" style="display:none;">
+                <p>Send payment to The Tea House Merchant Account: <code>01700-000000</code></p>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="nagadSender">Your Nagad Number</label>
+                    <input class="field-input" id="nagadSender" type="tel" placeholder="01XXXXXXXXX" />
+                  </div>
+                  <div class="field-group">
+                    <label for="nagadTrx">Transaction ID (TrxID)</label>
+                    <input class="field-input" id="nagadTrx" type="text" placeholder="e.g. 8FG2M4K9" />
+                  </div>
                 </div>
-            </section>
+              </div>
 
-            <!-- fresh tea section -->
-            <section class="w-full lg:max-w-[76%] container mx-auto py-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-8 py-10 items-center">
-
-                    <div class="grid grid-cols-2 gap-3 grid-rows-3 h-[400px] md:h-[500px] lg:h-[500px]">
-                        <div class="bg-gradient-to-r from-red-500/15 to-orange-500/10 rounded-xl"></div>
-
-                        <div class="bg-[#E6A623]/10 row-span-2 rounded-xl flex items-center justify-center">
-                            <img src="./images/fresh-1.png" alt="Fresh Tea 1" class="object-contain p-6 md:p-10">
-                        </div>
-
-                        <div class="bg-[#577639]/10 row-span-2 rounded-xl flex items-center justify-center">
-                            <img src="./images/fresh-2.png" alt="Fresh Tea 2" class="object-contain p-6 md:p-10">
-                        </div>
-
-                        <div class="bg-gradient-to-l from-white/90 to-[#D9D9D9]/70 rounded-xl"></div>
-                    </div>
-
-                    <div class="px-0 lg:px-3 md:text:left lg:text-left -mt-6 md:[mt-0] lg:-mt-7">
-                        <h2
-                            class="text-4xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-[50px] md:mt-4 md:lg:leading-[60px]">
-                            Great Tea, Freshly<br> Presented
-                        </h2>
-                        <p
-                            class="max-w-[500px] mx-0 md:mx-0 lg:mx-0 tracking-wide text-sm md:text-base py-3 md:py-2 text-gray-600 leading-relaxed md:leading-[20px] lg:leading-[30px]">
-                            The meaning of Gong Cha in Chinese is to provide the best tea to the emperor from all
-                            possessions. It represents the highest quality and self-expectation.
-                        </p>
-
-                        <div class="mt-6 lg:mt-0 space-y-6 text-left max-w-[500px] mx-0 lg:mx-0">
-                            <div class="bg-transparent">
-                                <h4 class="text-xl md:text-3xl font-semibold text-gray-800 mb-3">Unique Taste</h4>
-                                <p class="text-gray-500 text-sm md:text-base">
-                                    A unique and different style from other teapots gives a luxurious and minimalist
-                                    impression.
-                                </p>
-                            </div>
-                            <div class="bg-transparent">
-                                <h4 class="text-xl md:text-3xl font-semibold text-gray-800 mb-3">Premium Quality</h4>
-                                <p class="text-gray-500 text-sm md:text-base">
-                                    Premium quality that makes tea more elegant and more durable when you use it.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+              <div class="payment-subform" id="subformCard" style="display:none;">
+                <div class="field-group">
+                  <label for="cardName">Cardholder Name</label>
+                  <input class="field-input" id="cardName" type="text" placeholder="Name on card" />
                 </div>
-            </section>
-
-            <!-- meet section -->
-            <section
-                class="container lg:max-w-[73%] mx-auto py-12 px-6 md:p-14 mt-14 mb-28 bg-gradient-to-r from-orange-500/90 to-red-600/90 min-h-[500px] lg:h-[650px] rounded-xl text-white flex justify-center items-center overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-2 py-10 w-full items-center">
-
-                    <div class="relative z-50 text-center lg:text-left">
-                        <h1
-                            class="xl:w-[450px] lg:w-[300px] text-3xl md:text-4xl lg:text-5xl font-bold leading-tight lg:leading-[65px]">
-                            Meet Our Super Clients
-                        </h1>
-                        <p
-                            class="max-w-[300px] lg:max-w-[350px] mx-auto lg:mx-0 tracking-wide text-base sm:text-sm md:text-base mt-5 mb-8 leading-relaxed lg:leading-[30px]">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.
-                        </p>
-
-                        <div class="bg-white rounded-xl p-0 w-[140px] mx-auto lg:mx-0">
-                            <button type="button"
-                                class="w-full text-xl text-center bg-clip-text bg-gradient-to-r from-orange-400 to-red-600 py-4 rounded-lg text-transparent font-semibold cursor-pointer">
-                                Show All
-                            </button>
-                        </div>
-                        <div class="hidden sm:block md:block lg:block absolute w-full transform translate-x-[20%]">
-                            <div
-                                class="absolute -left-4 -mt-[9%] lg:-mt-[30%] sm:-mt-[55%] md:-mt-[35%] xl:-mt-[30%] block -rotate-12 opacity-5">
-                                <img src="./images/frame.png" alt="decorative frame"
-                                    class="w-[250px] md:w-[300px] lg:w-[300px]">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative flex justify-center items-center lg:ml-0">
-                        <div
-                            class="relative w-full max-w-[433px] h-[233px] bg-white rounded-xl p-8 md:p-6 shadow-xl z-20">
-                            <div
-                                class="absolute top-0 -left-4 transform -translate-x-[10%] -translate-y-1/2 mb-4 bg-white rounded-full p-2 shadow-lg">
-                                <img src="./images/client.png" alt="Client Avatar">
-                            </div>
-                            <div class="mt-2 text-left">
-                                <p class="text-base text-gray-600 font-normal leading-relaxed">
-                                    We are providing the best and suitable home insurance services for the people who
-                                    are interested to treatment
-                                </p>
-                                <p class="text-gray-800 font-semibold text-base mt-6">Ilham Yuda</p>
-                                <p class="text-gray-700 text-base font-normal">Businessman</p>
-                            </div>
-                            <img src="./images/circles.png" alt="" class="absolute bottom-6 right-8">
-                        </div>
-
-                        <div class="hidden lg:block">
-                            <div
-                                class="absolute w-[433px] md:w-[303px] h-[233px] md:h-[203px] lg:w-[433px] lg:h-[233px] bg-white/30 rounded-xl p-6 md:p-7 shadow-lg opacity-50 -mt-[250px] transform -translate-x-[90%] z-10 lg:block hidden">
-                                <div
-                                    class="absolute top-0 -left-4 transform -translate-x-[10%] -translate-y-1/2 bg-white rounded-full p-2 shadow-lg opacity-50">
-                                    <img src="./images/client.png" alt="Client Avatar">
-                                </div>
-                                <div class="mt-2 text-left">
-                                    <p class="text-base text-gray-600 font-normal leading-[30px] md:leading-[22px]">
-                                        We are providing the best and suitable home insurance services for the people
-                                        who are interested to treatment
-                                    </p>
-                                    <p class="text-gray-800 font-semibold text-base mt-6">Ilham Yuda</p>
-                                    <p class="text-gray-700 text-base font-normal">Businessman</p>
-                                </div>
-                                <img src="./images/circles.png" alt="" class="absolute bottom-6 right-8">
-                            </div>
-
-                            <div
-                                class="absolute w-[433px] md:w-[343px] h-[233px] md:h-[203px] lg:w-[433px] lg:h-[233px] bg-white/30 rounded-xl p-10 md:p-7 shadow-lg opacity-50 mt-[25px] transform -translate-x-[90%] z-10 lg:block hidden">
-                                <div
-                                    class="absolute top-0 -left-4 transform -translate-x-[10%] -translate-y-1/2 bg-white rounded-full p-2 shadow-lg opacity-50">
-                                    <img src="./images/client.png" alt="Client Avatar">
-                                </div>
-                                <div class="mt-2 text-left">
-                                    <p class="text-base text-gray-600 font-normal leading-relaxed">
-                                        We are providing the best and suitable home insurance services for the people
-                                        who are interested to treatment
-                                    </p>
-                                    <p class="text-gray-800 font-semibold text-base mt-6">Ilham Yuda</p>
-                                    <p class="text-gray-700 text-base font-normal">Businessman</p>
-                                </div>
-                                <img src="./images/circles.png" alt="" class="absolute bottom-6 right-8">
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="field-group">
+                  <label for="cardNumber">Card Number</label>
+                  <input class="field-input" id="cardNumber" type="text" maxlength="19" placeholder="4111 2222 3333 4444" />
                 </div>
-            </section>
-
-            <!-- news&event section -->
-            <section class="container md:max-w-[73%] mx-auto py-12 px-4 md:px-0 mt-10 md:mt-14 mb-14">
-                <div class="max-w-full md:max-w-[50%] text-center mx-auto">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 leading-tight md:leading-[75px]">
-                        News &amp; Events
-                    </h2>
-                    <p
-                        class="max-w-[800px] mx-auto tracking-wide text-sm md:text-base mt-3 mb-8 text-gray-600 leading-relaxed md:leading-[30px]">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form.
-                    </p>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="cardExpiry">Expiry (MM/YY)</label>
+                    <input class="field-input" id="cardExpiry" type="text" maxlength="5" placeholder="12/28" />
+                  </div>
+                  <div class="field-group">
+                    <label for="cardCvc">CVV / CVC</label>
+                    <input class="field-input" id="cardCvc" type="password" maxlength="4" placeholder="123" />
+                  </div>
                 </div>
-                <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-5 lg:gap-x-[40px] py-8 px-4 md:p-0 justify-items-center items-stretch">
-                    <div class="w-full max-w-[340px] bg-white rounded-xl p-4 shadow-xl border border-gray-100 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-                        <div>
-                            <img src="./images/news-1.png" alt="News update"
-                                class="w-full h-[180px] mb-6 object-cover rounded-lg">
-                            <p class="text-sm text-gray-400 mb-3">Feb 05, 2027</p>
-                            <h4 class="text-xl md:text-2xl text-gray-800 font-semibold leading-tight min-h-[64px]">
-                                Collecting 8 points for discount
-                            </h4>
-                            <p class="text-gray-500 text-sm mt-4 mb-4 leading-relaxed">
-                                There are many variations of passages of Lorem Ipsum available.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="text-gray-800 font-semibold hover:underline transition-all duration-300 inline-block mt-auto">
-                            Learn More
-                        </a>
-                    </div>
-                    <div class="w-full max-w-[340px] bg-white rounded-xl p-4 shadow-xl border border-gray-100 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-                        <div>
-                            <img src="./images/news-2.png" alt="News update"
-                                class="w-full h-[180px] mb-6 object-cover rounded-lg">
-                            <p class="text-sm text-gray-400 mb-3">Feb 05, 2027</p>
-                            <h4 class="text-xl md:text-2xl text-gray-800 font-semibold leading-tight min-h-[64px]">
-                                Collecting 8 points for discount
-                            </h4>
-                            <p class="text-gray-500 text-sm mt-4 mb-4 leading-relaxed">
-                                There are many variations of passages of Lorem Ipsum available.
-                            </p>
-                        </div>
-                        <a href="#" class="text-gray-800 font-semibold hover:underline transition-all duration-300 inline-block mt-auto">
-                            Learn More
-                        </a>
-                    </div>
-                    <div class="w-full max-w-[340px] bg-white rounded-xl p-4 shadow-xl border border-gray-100 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-                        <div>
-                            <img src="./images/news-3.png" alt="News update"
-                                class="w-full h-[180px] mb-6 object-cover rounded-lg">
-                            <p class="text-sm text-gray-400 mb-3">Feb 05, 2027</p>
-                            <h4 class="text-xl md:text-2xl text-gray-800 font-semibold leading-tight min-h-[64px]">
-                                Collecting 8 points for discount
-                            </h4>
-                            <p class="text-gray-500 text-sm mt-4 mb-4 leading-relaxed">
-                                There are many variations of passages of Lorem Ipsum available.
-                            </p>
-                        </div>
-                        <a href="#" class="text-gray-800 font-semibold hover:underline transition-all duration-300 inline-block mt-auto">
-                            Learn More
-                        </a>
-                    </div>
+              </div>
+
+              <!-- Order Mini Summary -->
+              <div class="order-mini-summary">
+                <div class="mini-row">
+                  <span>Selected items:</span>
+                  <span id="checkoutItemCount">0 items</span>
                 </div>
-            </section>
-
-            <!-- footer section -->
-            <footer class="py-12 mt-14 bg-gradient-to-r from-orange-500/50 to-red-600/50">
-                <div class="container w-[92%] sm:w-[85%] md:w-[80%] lg:w-[76%] 2xl:max-w-[1400px] mx-auto">
-
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-center border-b-[1.5px] border-white/50 pb-8 gap-6 text-center md:text-left">
-                        <img src="./images/frame.png" alt="logo" class="w-[50px] md:w-[60px]">
-                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-x-6 lg:gap-x-10">
-                            <p class="text-white text-lg md:text-xl xl:text-2xl font-medium">Ready to get started?</p>
-                            <button type="button"
-                                class="bg-white h-[50px] md:h-[55px] xl:h-[60px] text-orange-600 px-6 md:px-8 py-1 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-md">
-                                Get Started
-                            </button>
-                        </div>
-                    </div>
-
-                    <div
-                        class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 gap-x-6 md:gap-x-12 xl:gap-x-16 text-center sm:text-left">
-
-                        <div class="text-white leading-[32px] md:leading-[40px]">
-                            <h3
-                                class="text-lg md:text-xl font-bold mb-4 md:mb-6 border-b-2 border-white/20 inline-block sm:block sm:border-0">
-                                Quick Links</h3>
-                            <ul class="text-gray-100/90 font-light text-sm md:text-base">
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Home
-                                </li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">About
-                                    Us</li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">
-                                    Insurance</li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Privacy
-                                    &amp; Policy</li>
-                            </ul>
-                        </div>
-
-                        <div class="text-white leading-[32px] md:leading-[40px]">
-                            <h3
-                                class="text-lg md:text-xl font-bold mb-4 md:mb-6 border-b-2 border-white/20 inline-block sm:block sm:border-0">
-                                Our Service</h3>
-                            <ul class="text-gray-100/90 font-light text-sm md:text-base">
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Life
-                                    Insurance</li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Car
-                                    Insurance</li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Health
-                                    Insurance</li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">House
-                                    Insurance</li>
-                            </ul>
-                        </div>
-
-                        <div class="text-white leading-[32px] md:leading-[40px]">
-                            <h3
-                                class="text-lg md:text-xl font-bold mb-4 md:mb-6 border-b-2 border-white/20 inline-block sm:block sm:border-0">
-                                Help</h3>
-                            <ul class="text-gray-100/90 font-light text-sm md:text-base">
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">FAQ
-                                </li>
-                                <li class="hover:translate-x-2 transition-transform duration-300 cursor-pointer">Contact
-                                    Us</li>
-                            </ul>
-                        </div>
-
-                        <div class="text-white sm:col-span-2 xl:col-span-1 mt-4 xl:mt-0">
-                            <h3 class="text-xl lg:text-2xl font-bold mb-6">Subscribe to our newsletter</h3>
-                            <div class="relative flex items-center group max-w-[400px] mx-auto sm:mx-0">
-                                <input type="email" placeholder="Enter your email"
-                                    class="w-full pb-3 pt-2 bg-transparent border-b-2 border-white/40 focus:border-white outline-none placeholder:text-white/70 transition-colors">
-                                <div class="absolute right-0 bottom-2 flex justify-center items-center size-10 bg-white rounded-full shadow-lg transform group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-chevron-right text-orange-600"></i>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-center sm:justify-start gap-x-6 pt-8">
-                                <a href="#" class="hover:-translate-y-1 transition-transform opacity-90 hover:opacity-100"><i class="fa-brands fa-facebook-f text-2xl"></i></a>
-                                <a href="#" class="hover:-translate-y-1 transition-transform opacity-90 hover:opacity-100"><i class="fa-brands fa-twitter text-2xl"></i></a>
-                                <a href="#" class="hover:-translate-y-1 transition-transform opacity-90 hover:opacity-100"><i class="fa-brands fa-instagram text-2xl"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center text-white/70 pt-16 md:pt-24 pb-8 border-t border-white/10 mt-12">
-                        <p class="text-xs md:text-sm lg:text-base">© 2027 UIDesign.to - All rights reserved.</p>
-                    </div>
+                <div class="mini-row">
+                  <span>Subtotal:</span>
+                  <span id="checkoutSubtotal"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</span>
                 </div>
-            </footer>
-        </main>
-    </body>
+                <div class="mini-row" id="checkoutDiscountRow" style="display:none;">
+                  <span>Discount:</span>
+                  <span id="checkoutDiscount" style="color:#235831;">- <i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</span>
+                </div>
+                <div class="mini-row">
+                  <span>Delivery:</span>
+                  <span id="checkoutDelivery"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 60</span>
+                </div>
+                <div class="mini-row total">
+                  <span>Total Payable:</span>
+                  <strong id="checkoutTotal"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</strong>
+                </div>
+              </div>
 
+              <button type="submit" class="checkout-submit-btn" id="confirmOrderBtn">
+                <i class="fi fi-rr-check" aria-hidden="true"></i>
+                <span id="confirmOrderBtnText">Confirm Order</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="order-modal-backdrop" id="orderModalBackdrop" aria-hidden="true">
+    <div class="order-receipt" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+      <div class="receipt-check">
+        <i class="fi fi-rr-check" aria-hidden="true"></i>
+      </div>
+      <h2 id="receiptTitle">Order Placed Successfully!</h2>
+      <p class="order-receipt-desc">Thank you for slowing down with us. Your harvest has been received and is being carefully packaged.</p>
+
+      <div class="order-ticket">
+        <div class="ticket-row">
+          <span>Order Reference:</span>
+          <strong id="receiptOrderNum">#TH-94821</strong>
+        </div>
+        <div class="ticket-row">
+          <span>Estimated Delivery:</span>
+          <strong id="receiptEta">Within 24–48 hours (Dhaka)</strong>
+        </div>
+        <div class="ticket-row">
+          <span>Delivery To:</span>
+          <strong id="receiptCustomer">Customer Name</strong>
+        </div>
+        <div class="ticket-row">
+          <span>Payment Status:</span>
+          <strong id="receiptPayment">Cash on Delivery</strong>
+        </div>
+
+        <div class="ticket-items" id="receiptItems">
+          <!-- Dynamically filled -->
+        </div>
+
+        <div class="ticket-row" style="margin-top:10px; font-size:14px; font-weight:700;">
+          <span>Total Amount:</span>
+          <strong id="receiptTotal" style="color:var(--forest);"><i class="fa-solid fa-bangladeshi-taka-sign" aria-hidden="true"></i> 0</strong>
+        </div>
+      </div>
+
+      <div class="receipt-actions">
+        <button class="btn-receipt-print" id="receiptPrintBtn">
+          <i class="fi fi-rr-print" aria-hidden="true"></i>
+          <span>Print Receipt</span>
+        </button>
+        <button class="btn-receipt-done" id="receiptDoneBtn">
+          <span>Back to Tea House</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
 </html>
-
-
-<!-- Character,Meaning,HTML Entity (The Fix)
-&,Ampersand,&amp;
-<,Less than,&lt;
->,Greater than,&gt;
-"""",Double Quote,&quot;
-',Single Quote,&apos; -->
