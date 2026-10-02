@@ -1,7 +1,62 @@
-﻿// ==========================================================================
-// The Tea House - Main Engine
+// ==========================================================================
+// Tea-Buffe - Main Engine
 // Navigation, Product Slider, Cart Manager, Checkout & Payment Processor
 // ==========================================================================
+
+// --------------------------------------------------------------------------
+// Anti-Inspect & DevTools Protection
+// Disable right-click context menu, shortcut keys, and inspection tools
+// --------------------------------------------------------------------------
+(function () {
+  // 1. Disable right-click context menu
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    return false;
+  }, { capture: true });
+
+  // 2. Disable DevTools & source inspection shortcuts
+  window.addEventListener("keydown", function (e) {
+    // F12 key
+    if (e.key === "F12" || e.keyCode === 123) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
+    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
+
+    // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect Element)
+    if (isCtrlOrMeta && e.shiftKey) {
+      const k = (e.key || "").toUpperCase();
+      if (k === "I" || k === "J" || k === "C") {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }
+
+    // Ctrl+U / Cmd+U (View Page Source)
+    if (isCtrlOrMeta && (e.key === "u" || e.key === "U")) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
+    // Ctrl+S / Cmd+S (Save Page)
+    if (isCtrlOrMeta && (e.key === "s" || e.key === "S")) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, { capture: true });
+
+  // 3. Debugger protection if DevTools is opened
+  setInterval(function () {
+    (function () {
+      return false;
+    })["constructor"]("debugger")();
+  }, 500);
+})();
 
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------
@@ -237,9 +292,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (cartTotal) cartTotal.innerHTML = `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${total.toLocaleString()}`;
 
-    // Enable / disable checkout button
+    // Checkout button state styling
     if (cartCheckoutBtn) {
-      cartCheckoutBtn.disabled = cart.length === 0;
+      cartCheckoutBtn.classList.toggle("is-empty", cart.length === 0);
+      cartCheckoutBtn.disabled = false;
     }
 
     // Update checkout modal summary if modal is open
@@ -337,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ------------------------------------------------------------------------
-  // 3. Checkout Modal & Payment Processor
+  // 3. Checkout Modal & Payment Processor — 3-Step Stepper
   // ------------------------------------------------------------------------
   const checkoutModalBackdrop = document.getElementById("checkoutModalBackdrop");
   const checkoutCloseBtn = document.getElementById("checkoutCloseBtn");
@@ -367,13 +423,64 @@ document.addEventListener("DOMContentLoaded", () => {
   const receiptPrintBtn = document.getElementById("receiptPrintBtn");
   const receiptDoneBtn = document.getElementById("receiptDoneBtn");
 
+  // Step elements
+  const stepPanels = [
+    document.getElementById("checkoutStep1"),
+    document.getElementById("checkoutStep2"),
+    document.getElementById("checkoutStep3"),
+  ];
+  const stepIndicators = [
+    document.getElementById("stepIndicator1"),
+    document.getElementById("stepIndicator2"),
+    document.getElementById("stepIndicator3"),
+  ];
+  const stepConnectors = document.querySelectorAll(".step-connector");
+  let currentStep = 0;
+
+  const stepIcons = [
+    '<i class="fi fi-rr-marker" aria-hidden="true"></i>',
+    '<i class="fi fi-rr-credit-card" aria-hidden="true"></i>',
+    '<i class="fi fi-rr-document" aria-hidden="true"></i>'
+  ];
+
+  function goToStep(index) {
+    stepPanels.forEach((p, i) => {
+      if (p) p.style.display = i === index ? "block" : "none";
+    });
+    stepIndicators.forEach((ind, i) => {
+      if (!ind) return;
+      ind.classList.remove("active", "done");
+      if (i < index) ind.classList.add("done");
+      if (i === index) ind.classList.add("active");
+    });
+    stepConnectors.forEach((c, i) => {
+      if (c) c.classList.toggle("done", i < index);
+    });
+    // Use icons for process, swap to checkmark when step is done
+    stepIndicators.forEach((ind, i) => {
+      if (!ind) return;
+      const bubble = ind.querySelector(".step-bubble");
+      if (!bubble) return;
+      if (i < index) {
+        bubble.innerHTML = `<i class="fi fi-rr-check" aria-hidden="true"></i>`;
+      } else {
+        bubble.innerHTML = stepIcons[i];
+      }
+    });
+    currentStep = index;
+    // scroll modal to top
+    const modal = document.querySelector(".checkout-modal");
+    if (modal) modal.scrollTop = 0;
+  }
+
   function openCheckoutModal() {
     if (cart.length === 0) {
-      showToast("Your tea bag is empty. Please add tea first.");
+      showToast("Your tea bag is empty. Please select a tea from the collection first!");
       return;
     }
     closeCartDrawer();
     updateCheckoutSummary();
+    goToStep(0);
     checkoutModalBackdrop?.classList.add("open");
     checkoutModalBackdrop?.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -387,6 +494,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cartCheckoutBtn?.addEventListener("click", openCheckoutModal);
   checkoutCloseBtn?.addEventListener("click", closeCheckoutModal);
+  checkoutModalBackdrop?.addEventListener("click", (e) => {
+    if (e.target === checkoutModalBackdrop) closeCheckoutModal();
+  });
+
+  // Step 1 → 2
+  document.getElementById("step1Next")?.addEventListener("click", () => {
+    const name = document.getElementById("custName")?.value.trim();
+    const phone = document.getElementById("custPhone")?.value.trim();
+    const address = document.getElementById("custAddress")?.value.trim();
+    if (!name || name.length < 2) { showToast("Please enter your full recipient name."); return; }
+    if (!phone || phone.length < 10) { showToast("Please enter a valid contact phone number."); return; }
+    if (!address || address.length < 5) { showToast("Please provide your complete delivery address."); return; }
+    goToStep(1);
+  });
+
+  // Step 2 → 1
+  document.getElementById("step2Back")?.addEventListener("click", () => goToStep(0));
+
+  // Step 2 → 3
+  document.getElementById("step2Next")?.addEventListener("click", () => {
+    const method = document.querySelector("input[name='paymentMethod']:checked")?.value || "cod";
+    if (method === "bkash") {
+      const n = document.getElementById("bkashSender")?.value.trim();
+      const t = document.getElementById("bkashTrx")?.value.trim();
+      if (!n || !t) { showToast("Please enter your bKash number and Transaction ID."); return; }
+    } else if (method === "nagad") {
+      const n = document.getElementById("nagadSender")?.value.trim();
+      const t = document.getElementById("nagadTrx")?.value.trim();
+      if (!n || !t) { showToast("Please enter your Nagad number and Transaction ID."); return; }
+    } else if (method === "card") {
+      const n = document.getElementById("cardNumber")?.value.trim();
+      const e = document.getElementById("cardExpiry")?.value.trim();
+      const c = document.getElementById("cardCvc")?.value.trim();
+      if (!n || !e || !c) { showToast("Please complete your card details."); return; }
+    }
+    populateReview();
+    updateCheckoutSummary();
+    goToStep(2);
+  });
+
+  // Step 3 → 2
+  document.getElementById("step3Back")?.addEventListener("click", () => goToStep(1));
+
+  // Edit shortcuts
+  document.getElementById("editDeliveryBtn")?.addEventListener("click", () => goToStep(0));
+  document.getElementById("editPaymentBtn")?.addEventListener("click", () => goToStep(1));
+
+  function populateReview() {
+    const name = document.getElementById("custName")?.value.trim();
+    const phone = document.getElementById("custPhone")?.value.trim();
+    const city = document.getElementById("custCity")?.value;
+    const address = document.getElementById("custAddress")?.value.trim();
+    const notes = document.getElementById("custNotes")?.value.trim();
+    const deliverySummary = document.getElementById("reviewDeliverySummary");
+    if (deliverySummary) {
+      deliverySummary.innerHTML = `
+        <strong>${name}</strong> · ${phone}<br>
+        ${address}, ${city}${notes ? `<br><em>Note: ${notes}</em>` : ""}
+      `;
+    }
+
+    const method = document.querySelector("input[name='paymentMethod']:checked")?.value || "cod";
+    const methodNames = { cod: "Cash on Delivery", bkash: "bKash Payment", nagad: "Nagad Payment", card: "Credit / Debit Card" };
+    const paymentSummary = document.getElementById("reviewPaymentSummary");
+    if (paymentSummary) paymentSummary.textContent = methodNames[method] || method;
+  }
 
   // Switch Payment Subforms
   const paymentRadios = document.querySelectorAll("input[name='paymentMethod']");
@@ -394,7 +567,6 @@ document.addEventListener("DOMContentLoaded", () => {
     radio.addEventListener("change", () => {
       document.querySelectorAll(".payment-card-option").forEach(lbl => lbl.classList.remove("selected"));
       radio.closest(".payment-card-option")?.classList.add("selected");
-
       const method = radio.value;
       if (subformBkash) subformBkash.style.display = method === "bkash" ? "block" : "none";
       if (subformNagad) subformNagad.style.display = method === "nagad" ? "block" : "none";
@@ -402,26 +574,89 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ------------------------------------------------------------------------
+  // Custom City/Region Dropdown
+  // ------------------------------------------------------------------------
+  const citySelectWrapper = document.getElementById("citySelectWrapper");
+  if (citySelectWrapper) {
+    const trigger = document.getElementById("citySelectTrigger");
+    const hiddenInput = document.getElementById("custCity");
+    const options = citySelectWrapper.querySelectorAll(".custom-select-option");
+    const displayValue = trigger?.querySelector(".custom-select-value");
+
+    trigger?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const open = citySelectWrapper.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", String(open));
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const val = opt.dataset.value;
+        const time = opt.dataset.time || "48h";
+        const title = opt.querySelector(".opt-title")?.textContent || val;
+        const isFast = time.includes("24h");
+
+        if (hiddenInput) {
+          hiddenInput.value = val;
+          hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+
+        options.forEach(o => {
+          o.classList.remove("selected");
+          o.setAttribute("aria-selected", "false");
+        });
+        opt.classList.add("selected");
+        opt.setAttribute("aria-selected", "true");
+
+        if (displayValue) {
+          displayValue.innerHTML = `
+            <i class="fi fi-rr-marker select-pin-icon" aria-hidden="true"></i>
+            <span class="select-text">${title}</span>
+            <span class="select-badge ${isFast ? "badge-fast" : ""}">${time}</span>
+          `;
+        }
+
+        citySelectWrapper.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close on click outside
+    document.addEventListener("click", (e) => {
+      if (!citySelectWrapper.contains(e.target)) {
+        citySelectWrapper.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && citySelectWrapper.classList.contains("open")) {
+        citySelectWrapper.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+        trigger?.focus();
+      }
+    });
+  }
+
   function updateCheckoutSummary() {
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     const { subtotal, discount, delivery, total, hasDiscount } = calculateTotals();
-
     if (checkoutItemCount) checkoutItemCount.textContent = `${totalCount} ${totalCount === 1 ? "item" : "items"}`;
     if (checkoutSubtotal) checkoutSubtotal.innerHTML = `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${subtotal.toLocaleString()}`;
     if (checkoutDiscountRow && checkoutDiscount) {
       if (hasDiscount && discount > 0) {
         checkoutDiscountRow.style.display = "flex";
         checkoutDiscount.innerHTML = `- <i class="fa-solid fa-bangladeshi-taka-sign"></i> ${discount.toLocaleString()}`;
-      } else {
-        checkoutDiscountRow.style.display = "none";
-      }
+      } else { checkoutDiscountRow.style.display = "none"; }
     }
     if (checkoutDelivery) {
-      if (delivery === 0) {
-        checkoutDelivery.innerHTML = `<span style="color:#235831; font-weight:700;">FREE</span>`;
-      } else {
-        checkoutDelivery.innerHTML = `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${delivery}`;
-      }
+      checkoutDelivery.innerHTML = delivery === 0
+        ? `<span style="color:#235831; font-weight:700;">FREE</span>`
+        : `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${delivery}`;
     }
     if (checkoutTotal) checkoutTotal.innerHTML = `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${total.toLocaleString()}`;
   }
@@ -429,75 +664,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle Checkout Submission
   checkoutForm?.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const name = document.getElementById("custName")?.value.trim();
     const phone = document.getElementById("custPhone")?.value.trim();
     const city = document.getElementById("custCity")?.value;
     const address = document.getElementById("custAddress")?.value.trim();
     const notes = document.getElementById("custNotes")?.value.trim();
-    const selectedPayRadio = document.querySelector("input[name='paymentMethod']:checked");
-    const method = selectedPayRadio ? selectedPayRadio.value : "cod";
+    const method = document.querySelector("input[name='paymentMethod']:checked")?.value || "cod";
 
-    // Validations
-    if (!name || name.length < 2) {
-      showToast("Please enter your full recipient name.");
-      return;
-    }
-    if (!phone || phone.length < 10) {
-      showToast("Please enter a valid contact phone number.");
-      return;
-    }
-    if (!address || address.length < 5) {
-      showToast("Please provide your complete delivery street address.");
-      return;
-    }
-
-    if (method === "bkash") {
-      const bkashNum = document.getElementById("bkashSender")?.value.trim();
-      const bkashTrx = document.getElementById("bkashTrx")?.value.trim();
-      if (!bkashNum || !bkashTrx) {
-        showToast("Please enter your bKash mobile number and Transaction ID (TrxID).");
-        return;
-      }
-    } else if (method === "nagad") {
-      const nagadNum = document.getElementById("nagadSender")?.value.trim();
-      const nagadTrx = document.getElementById("nagadTrx")?.value.trim();
-      if (!nagadNum || !nagadTrx) {
-        showToast("Please enter your Nagad number and Transaction ID (TrxID).");
-        return;
-      }
-    } else if (method === "card") {
-      const cardNum = document.getElementById("cardNumber")?.value.trim();
-      const cardExpiry = document.getElementById("cardExpiry")?.value.trim();
-      const cardCvc = document.getElementById("cardCvc")?.value.trim();
-      if (!cardNum || !cardExpiry || !cardCvc) {
-        showToast("Please complete your card details for payment verification.");
-        return;
-      }
-    }
-
-    // Process Order (simulate realistic confirmation)
     if (confirmOrderBtn && confirmOrderBtnText) {
       confirmOrderBtn.disabled = true;
-      confirmOrderBtnText.textContent = "Verifying & Placing Order...";
+      confirmOrderBtnText.textContent = "Placing Order...";
     }
 
     setTimeout(() => {
       const orderId = "TH-" + Math.floor(10000 + Math.random() * 90000);
       const { total } = calculateTotals();
 
-      // Populate Receipt Modal
       if (receiptOrderNum) receiptOrderNum.textContent = `#${orderId}`;
       if (receiptCustomer) receiptCustomer.textContent = `${name} (${phone}) - ${address}, ${city}`;
       if (receiptEta) {
         receiptEta.textContent = city.includes("Dhaka (Inside City)") ? "Within 24 Hours (Eco-Courier)" : "Within 48 Hours";
       }
-
-      let payStatusText = "Cash on Delivery";
-      if (method === "bkash") payStatusText = "bKash (Verified Online)";
-      if (method === "nagad") payStatusText = "Nagad (Verified Online)";
-      if (method === "card") payStatusText = "Credit/Debit Card (Paid)";
-      if (receiptPayment) receiptPayment.textContent = payStatusText;
+      const payLabels = { cod: "Cash on Delivery", bkash: "bKash (Verified Online)", nagad: "Nagad (Verified Online)", card: "Credit/Debit Card (Paid)" };
+      if (receiptPayment) receiptPayment.textContent = payLabels[method] || method;
 
       if (receiptItems) {
         receiptItems.innerHTML = cart.map(item => `
@@ -509,26 +698,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (receiptTotal) receiptTotal.innerHTML = `<i class="fa-solid fa-bangladeshi-taka-sign"></i> ${total.toLocaleString()}`;
 
-      // Clear Cart State
       cart = [];
       promoCode = null;
       localStorage.removeItem(CART_STORAGE_KEY);
       localStorage.removeItem(PROMO_STORAGE_KEY);
       renderCart();
 
-      // Reset button
       if (confirmOrderBtn && confirmOrderBtnText) {
         confirmOrderBtn.disabled = false;
-        confirmOrderBtnText.textContent = "Confirm Order";
+        confirmOrderBtnText.textContent = "Place Order";
       }
       checkoutForm.reset();
-
-      // Switch modals
       closeCheckoutModal();
       orderModalBackdrop?.classList.add("open");
       orderModalBackdrop?.setAttribute("aria-hidden", "false");
     }, 900);
   });
+
+
 
   receiptPrintBtn?.addEventListener("click", () => {
     window.print();
@@ -571,8 +758,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (maxScroll <= 20) {
       collectionTrack.style.height = "100vh";
     } else {
-      // 1.5x horizontal scroll travel distance for relaxed, deliberate pacing
-      const scrollDistance = Math.max(maxScroll * 1.5, window.innerHeight * 1.6);
+      // Fast, responsive horizontal scroll distance (accelerated card glide)
+      const scrollDistance = Math.max(maxScroll * 0.65, window.innerHeight * 0.7);
       collectionTrack.style.height = `${window.innerHeight + scrollDistance}px`;
     }
   }
@@ -616,11 +803,12 @@ document.addEventListener("DOMContentLoaded", () => {
   sliderPrev?.addEventListener("click", () => {
     if (!productSlider) return;
     const cardWidth = productSlider.querySelector(".product-card")?.offsetWidth || 300;
+    const scrollStep = (cardWidth + 24) * 1.35;
     if (window.innerWidth >= 981 && collectionTrack) {
       const scrollDistance = collectionTrack.offsetHeight - window.innerHeight;
       const maxScroll = productSlider.scrollWidth - productSlider.clientWidth;
       if (maxScroll > 0 && scrollDistance > 0) {
-        const targetScrollLeft = Math.max(productSlider.scrollLeft - (cardWidth + 20), 0);
+        const targetScrollLeft = Math.max(productSlider.scrollLeft - scrollStep, 0);
         const targetProgress = targetScrollLeft / maxScroll;
         const trackAbsoluteTop = window.scrollY + collectionTrack.getBoundingClientRect().top;
         const targetWindowY = trackAbsoluteTop + (targetProgress * scrollDistance);
@@ -628,17 +816,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
     }
-    productSlider.scrollBy({ left: -(cardWidth + 20), behavior: "smooth" });
+    productSlider.scrollBy({ left: -scrollStep, behavior: "smooth" });
   });
 
   sliderNext?.addEventListener("click", () => {
     if (!productSlider) return;
     const cardWidth = productSlider.querySelector(".product-card")?.offsetWidth || 300;
+    const scrollStep = (cardWidth + 24) * 1.35;
     if (window.innerWidth >= 981 && collectionTrack) {
       const scrollDistance = collectionTrack.offsetHeight - window.innerHeight;
       const maxScroll = productSlider.scrollWidth - productSlider.clientWidth;
       if (maxScroll > 0 && scrollDistance > 0) {
-        const targetScrollLeft = Math.min(productSlider.scrollLeft + cardWidth + 20, maxScroll);
+        const targetScrollLeft = Math.min(productSlider.scrollLeft + scrollStep, maxScroll);
         const targetProgress = targetScrollLeft / maxScroll;
         const trackAbsoluteTop = window.scrollY + collectionTrack.getBoundingClientRect().top;
         const targetWindowY = trackAbsoluteTop + (targetProgress * scrollDistance);
@@ -646,7 +835,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
     }
-    productSlider.scrollBy({ left: cardWidth + 20, behavior: "smooth" });
+    productSlider.scrollBy({ left: scrollStep, behavior: "smooth" });
   });
 
   productSlider?.addEventListener("scroll", updateSliderButtons, { passive: true });
@@ -687,15 +876,13 @@ document.addEventListener("DOMContentLoaded", () => {
     handleCollectionScroll();
   }, { passive: true });
 
-  // Fix: prevent the slider from trapping wheel events.
-  // When cursor is over the card area, redirect wheel scroll to the page
-  // so handleCollectionScroll() can update card position via window.scrollY.
+  // Fast, responsive wheel scrolling across card slider
   const productSliderWrapper = document.querySelector(".product-slider-wrapper");
   [productSlider, productSliderWrapper].forEach(el => {
     el?.addEventListener("wheel", (e) => {
       if (window.innerWidth < 981) return; // mobile: let native scroll work
       e.preventDefault();
-      window.scrollBy({ top: e.deltaY, left: 0 });
+      window.scrollBy({ top: e.deltaY * 1.8, left: 0 });
     }, { passive: false });
   });
 
@@ -794,6 +981,31 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // ------------------------------------------------------------------------
+  // 8. Bottom-Right Scroll-To-Top Button (Appears when reaching footer)
+  // ------------------------------------------------------------------------
+  const scrollTopBtn = document.getElementById("scrollToTopBtn");
+  const footerEl = document.querySelector(".footer");
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const checkFooterScroll = () => {
+      if (!footerEl) {
+        scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+        return;
+      }
+      const footerRect = footerEl.getBoundingClientRect();
+      const reachedFooter = footerRect.top <= (window.innerHeight + 60);
+      scrollTopBtn.classList.toggle("visible", reachedFooter);
+    };
+
+    window.addEventListener("scroll", checkFooterScroll, { passive: true });
+    checkFooterScroll();
+  }
 
   // Initial cart render
   renderCart();
