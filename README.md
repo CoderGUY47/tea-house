@@ -70,10 +70,10 @@ Traditional beverage websites are cluttered, lack brand atmosphere, compromise o
 <table>
   <tr>
     <td width="50%">
-      <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+      <img src="./assets/tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
     </td>
     <td width="50%">
-      <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+      <img src="./assets/tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
     </td>
   </tr>
   <tr>
@@ -82,10 +82,10 @@ Traditional beverage websites are cluttered, lack brand atmosphere, compromise o
   </tr>
   <tr>
     <td width="50%">
-      <img src="./part-2.png" alt="Tea Collection Product Slider Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+      <img src="./assets/part-2.png" alt="Tea Collection Product Slider Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
     </td>
     <td width="50%">
-      <img src="./part-3.png" alt="The Tea Ritual Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+      <img src="./assets/part-3.png" alt="The Tea Ritual Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
     </td>
   </tr>
   <tr>
@@ -150,7 +150,7 @@ HTML Pages (index, collection, story, ritual, gallery, journal)
     │
     ├── Client Interactions & Navigation (script.js)
     │
-    ├── Botanical Assets & Emblems (logo.png, Minimal Green Tea Cup Emblem.png)
+    ├── Botanical Assets & Emblems (assets/logo.png, assets/Minimal Green Tea Cup Emblem.png)
     │
     └── Browser Rendering Engine
          │
@@ -174,16 +174,16 @@ tea-house/
 ├── styles.css                    # Design system, CSS variables & mobile rules
 ├── script.js                     # Cart state, mobile drawer & UI interactions
 │
-├── logo.png                      # Official Tea-Buffe emblem & brand mark
-├── Minimal Green Tea Cup Emblem.png # Tea cup graphic emblem asset
-│
-├── tea-buffe-desktop-preview.png # Desktop preview card (1000x720)
-├── tea-buffe-mobile-preview.png  # Mobile preview card (1000x720)
-├── tea-buffe-preview.png         # Combined desktop & mobile showcase banner
-├── part-2.png                    # Tea Collection product slider showcase
-├── part-3.png                    # The Tea Ritual mindful brewing showcase
-├── tea-buffe.png                 # Full desktop raw preview
-├── tea-buffe-mobile.png          # Mobile raw responsive preview
+├── assets/                       # Image assets and media showcases
+│   ├── logo.png                  # Official Tea-Buffe emblem & brand mark
+│   ├── Minimal Green Tea Cup Emblem.png # Tea cup graphic emblem asset
+│   ├── tea-buffe-desktop-preview.png # Desktop preview card (1000x720)
+│   ├── tea-buffe-mobile-preview.png  # Mobile preview card (1000x720)
+│   ├── tea-buffe-preview.png     # Combined desktop & mobile showcase banner
+│   ├── part-2.png                # Tea Collection product slider showcase
+│   ├── part-3.png                # The Tea Ritual mindful brewing showcase
+│   ├── tea-buffe.png             # Full desktop raw preview
+│   └── tea-buffe-mobile.png      # Mobile raw responsive preview
 │
 └── README.md                     # Comprehensive project documentation
 ```
