@@ -214,7 +214,52 @@ button { cursor: pointer; }
   align-items: center;
   margin-left: 0;
 }
-.menu-toggle { display: none; border: 0; background: transparent; }
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(24, 60, 42, 0.16);
+  color: var(--forest);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.menu-toggle:hover {
+  background: var(--forest);
+  color: #ffffff;
+  border-color: var(--forest);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(24, 60, 42, 0.2);
+}
+.menu-toggle.open {
+  background: var(--forest);
+  color: #ffffff;
+  border-color: var(--forest);
+}
+.menu-toggle .fi {
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-toggle .menu-icon-close {
+  display: none;
+  font-size: 18px;
+}
+.menu-toggle.open .menu-icon-open {
+  display: none;
+}
+.menu-toggle.open .menu-icon-close {
+  display: inline-flex;
+}
 
 .hero {
   min-height: 800px;
@@ -1277,11 +1322,35 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
   .footer .container {
     width: min(92%, 760px);
   }
-  .site-header { top: 31px; }
+  .brand {
+    gap: 0;
+  }
+  .brand .brand-name,
+  .brand-name {
+    display: none !important;
+  }
   .nav-links, .nav-cta { display: none; }
-  .menu-toggle { display: flex; flex-direction: column; gap: 5px; }
-  .menu-toggle span { display: block; width: 24px; height: 1px; background: var(--forest); }
-  .nav-links.open { display: flex; position: absolute; top: 75px; left: 17px; right: 17px; background: var(--paper); padding: 22px; flex-direction: column; gap: 18px; box-shadow: var(--shadow); border-radius: 12px; }
+  .menu-toggle { display: inline-flex; }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 17px;
+    right: 17px;
+    background: #ffffff;
+    padding: 22px 24px;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 16px 40px rgba(10, 24, 17, 0.16);
+    border-radius: 16px;
+    border: 1px solid rgba(24, 60, 42, 0.1);
+    z-index: 1000;
+  }
   .hero { min-height: auto; padding-top: 125px; }
   .hero-grid { grid-template-columns: 1fr; gap: 20px; padding-bottom: 65px; }
   .hero-copy { text-align: center; }

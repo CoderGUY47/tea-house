@@ -10,16 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  menuToggle?.addEventListener("click", () => {
+  menuToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
     const open = navLinks.classList.toggle("open");
+    menuToggle.classList.toggle("open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
   });
 
   navLinks?.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
+      menuToggle?.classList.remove("open");
       menuToggle?.setAttribute("aria-expanded", "false");
     });
+  });
+
+  // Close mobile navigation when clicking outside
+  document.addEventListener("click", (e) => {
+    if (navLinks?.classList.contains("open")) {
+      if (!navLinks.contains(e.target) && !menuToggle?.contains(e.target)) {
+        navLinks.classList.remove("open");
+        menuToggle?.classList.remove("open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      }
+    }
   });
 
   // Highlight active link based on current page
