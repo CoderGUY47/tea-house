@@ -388,9 +388,69 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
 .arrow-circle { margin-left: auto; font-size: 17px; }
 .vertical-label { position: absolute; right: -15px; top: 28%; writing-mode: vertical-rl; font-size: 9px; letter-spacing: .3em; color: #819083; }
 
-.marquee { width: 100%; background: var(--forest); color: #dce6d7; padding: 20px 0; }
-.marquee-track { width: 100%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-family: var(--hand); font-size: 20px; }
-.marquee-track b { display: inline-flex; align-items: center; justify-content: center; color: #aabe94; }
+/* Infinite Sliding Value Marquee */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: var(--forest);
+  color: #dce6d7;
+  padding: 18px 0;
+  position: relative;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 32px;
+  padding-right: 32px;
+  font-family: var(--hand);
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.marquee-group span {
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.marquee-group b,
+.marquee-track b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #aabe94;
+}
+
+.marquee-group b .fi,
+.marquee-track b .fi {
+  font-size: 22px;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 
 .section { padding: 70px 0; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 55px; }
@@ -1372,6 +1432,46 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 26px; }
   .footer-bottom-center { display: none; }
   .newsletter-inner { grid-template-columns: 1fr; gap: 36px; }
+
+  /* Section headers: column layout on tablet and mobile */
+  .section-heading,
+  .ritual-head,
+  .story-heading,
+  .collection-header-container .section-heading,
+  .page-section .section-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    margin-bottom: 22px !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  .section-heading > div,
+  .ritual-head > div,
+  .collection-header-container .section-heading > div {
+    width: 100% !important;
+  }
+  .section-heading h1,
+  .section-heading h2,
+  .ritual-head h2 {
+    font-size: clamp(28px, 5.5vw, 40px) !important;
+    line-height: 1.14 !important;
+    margin: 4px 0 6px !important;
+  }
+  .section-heading > p,
+  .section-heading p,
+  .ritual-head > p,
+  .ritual-head p,
+  .collection-header-container .section-heading p {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1411,10 +1511,100 @@ em { color: var(--tea); font-family: var(--hand); font-style: normal; font-weigh
   .floating-note { left: 0; bottom: 3%; min-width: 175px; padding: 10px 14px; font-size: 11px; }
   .vertical-label { display: none; }
 
-  .section { padding: 36px 0; }
-  .section-heading { display: block; margin-bottom: 16px; }
-  .section-heading h2 { font-size: clamp(26px, 7vw, 34px); line-height: 1.15; margin: 4px 0 6px; }
-  .section-heading > p { margin-top: 6px; font-size: 12.5px; line-height: 1.4; }
+  .section { padding: 30px 0 !important; }
+  .ritual.section { padding: 32px 0 !important; }
+
+  /* Section headers: compact vertical footprint, strictly column on mobile */
+  .section-heading,
+  .ritual-head,
+  .story-heading,
+  .collection-header-container .section-heading,
+  .page-section .section-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    margin-bottom: 14px !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .section-heading > div,
+  .ritual-head > div,
+  .collection-header-container .section-heading > div {
+    width: 100% !important;
+  }
+
+  .section-heading h1,
+  .section-heading h2,
+  .ritual-head h2,
+  .page-hero-title {
+    font-size: clamp(22px, 6.2vw, 30px) !important;
+    line-height: 1.15 !important;
+    margin: 2px 0 4px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .section-heading .eyebrow,
+  .ritual-head .eyebrow,
+  .page-hero-inner .eyebrow {
+    font-size: 10px !important;
+    margin-bottom: 2px !important;
+    letter-spacing: .12em !important;
+  }
+
+  .section-heading > p,
+  .section-heading p,
+  .ritual-head > p,
+  .ritual-head p,
+  .collection-header-container .section-heading p,
+  .page-hero-desc {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: var(--muted) !important;
+  }
+
+  .ritual-head > p,
+  .ritual-head p {
+    color: #cad8c7 !important;
+  }
+
+  .section-heading .text-link {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+  }
+
+  /* Marquee on mobile: strictly ONE single row, sliding automatically */
+  .marquee {
+    padding: 12px 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+  .marquee-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    width: max-content !important;
+    animation-duration: 16s !important;
+  }
+  .marquee-group {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    gap: 16px !important;
+    padding-right: 16px !important;
+    font-size: 15px !important;
+  }
+  .marquee-group b .fi,
+  .marquee-track b .fi {
+    font-size: 16px !important;
+  }
 
   .collection-controls { margin-bottom: 12px; gap: 8px; }
   .filter-row {
@@ -1932,6 +2122,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     margin-inline: auto !important;
   }
   .collection-header-container .section-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
     margin-bottom: 12px !important;
   }
   .collection-header-container .section-heading h2 {
@@ -1940,7 +2134,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     margin: 4px 0 6px !important;
   }
   .collection-header-container .section-heading p {
-    margin-top: 6px !important;
+    margin-top: 4px !important;
     font-size: 13px !important;
     line-height: 1.4 !important;
   }
@@ -1976,15 +2170,32 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .collection-header-container {
     width: min(100% - 32px, 520px) !important;
   }
+  .collection-header-container .section-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
+    margin-bottom: 8px !important;
+  }
+  .collection-header-container .section-heading h2 {
+    font-size: clamp(22px, 6.2vw, 28px) !important;
+    line-height: 1.15 !important;
+    margin: 2px 0 4px !important;
+  }
+  .collection-header-container .section-heading p {
+    margin-top: 2px !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
   .collection-scroll-track .product-slider {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    scroll-padding-left: 16px !important;
-    scroll-padding-inline: 16px !important;
-    gap: 12px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    scroll-padding-left: 18px !important;
+    scroll-padding-inline: 18px !important;
+    gap: 14px !important;
   }
   .collection-scroll-track .product-slider .product-card {
-    scroll-margin-left: 16px !important;
+    scroll-margin-left: 18px !important;
     scroll-snap-align: start !important;
     flex: 0 0 76% !important;
     min-width: 220px !important;
