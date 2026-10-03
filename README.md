@@ -8,18 +8,6 @@
 
 ---
 
-<p align="center">
-  <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience" width="49%" />
-  &nbsp;
-  <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience" width="49%" />
-</p>
-
-<p align="center">
-  <em>Tea-Buffe desktop and mobile previews presented side-by-side with equal proportions, same height, and unified visual styling.</em>
-</p>
-
----
-
 ## Table of Contents
 
 - [Overview](#overview)
