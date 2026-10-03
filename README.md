@@ -1,214 +1,147 @@
-# Tea-Buffe — Modern Tea House & Botanical Tea Experience
+<div align="center">
 
-## Handpicked Tea, Thoughtfully Crafted for Slower Moments
+# 🍵 Tea-Buffe
 
-*A modern, responsive tea house website designed around premium tea collections, botanical aesthetics, storytelling, and a calm digital experience.*
+### Premium Tea House & Botanical Tea Experience
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-coderguy47.github.io%2Ftea--house-174D42?style=for-the-badge)](https://coderguy47.github.io/tea-house/) [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-222222?style=for-the-badge&logo=github&logoColor=white)](https://coderguy47.github.io/tea-house/)
+*Bridging mindful botanical storytelling with handpicked artisan harvests and slow living.*
 
----
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-coderguy47.github.io%2Ftea--house-174D42?style=for-the-badge)](https://coderguy47.github.io/tea-house/)
+&nbsp;
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+&nbsp;
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+&nbsp;
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+&nbsp;
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-222222?style=for-the-badge&logo=github&logoColor=white)](https://coderguy47.github.io/tea-house/)
 
-## Table of Contents
-
-- [Overview](#overview)
-- [The Challenge and The Solution](#the-challenge-and-the-solution)
-- [Live Links and UI Preview](#live-links-and-ui-preview)
-- [Business Value and SEO](#business-value-and-seo)
-- [Key Features](#key-features)
-- [Project Tasks and Phases](#project-tasks-and-phases)
-- [Tech Stack and Architecture](#tech-stack-and-architecture)
-- [Project Structure](#project-structure)
-- [Installation and Setup](#installation-and-setup)
-- [Production Deployment](#production-deployment)
-- [Social and Contributing](#social-and-contributing)
-- [License](#-license)
+</div>
 
 ---
 
-## Overview
+## 📖 Table of Contents
 
-**Tea-Buffe** is a modern, responsive tea house website created to deliver a premium digital experience for tea lovers. The website combines botanical-inspired visual design, elegant typography, responsive layouts, tea storytelling, product collections, and interactive navigation to create a calm and immersive tea brand experience.
-
-The project is built using **HTML5**, **CSS3**, **JavaScript (ES6+)**, **Google Fonts**, and modern responsive web design principles, keeping the implementation lightweight while maintaining a polished visual presentation. The experience is organized around several core sections including the **Tea Collection**, **Our Story**, **The Ritual**, **Gallery**, and **Journal**, allowing visitors to explore the brand beyond a simple product landing page.
+- [✨ Overview](#-overview)
+- [❌ The Problem &amp; ✅ The Solution](#-the-problem---the-solution)
+- [🚀 Live Links &amp; UI Preview](#-live-links--ui-preview)
+- [💡 Business Value &amp; SEO](#-business-value--seo)
+- [🚀 Key Features](#-key-features)
+- [📦 Tech Stack &amp; Architecture](#-tech-stack--architecture)
+- [📁 Project Structure](#-project-structure)
+- [🛠️ Installation &amp; Setup](#-installation--setup)
+- [🚢 Production Deployment](#-production-deployment)
+- [🤝 Social &amp; Contributing](#-social--contributing)
 
 ---
 
-## The Challenge and The Solution
+## ✨ Overview
+
+**Tea-Buffe** is an atmospheric, modern botanical tea house website designed to bring the calm mindfulness of tea craft into a digital experience. Meticulously crafted with **HTML5**, **CSS3**, and modern **JavaScript (ES6+)**, the platform blends editorial typography, organic aesthetics, single-origin sourcing narratives, and conversion-ready discovery into an unhurried, serene journey.
+
+Structured across five core brand experiences — **The Collection**, **Our Story**, **The Ritual**, **Botanical Gallery**, and **The Journal** — Tea-Buffe features an infinite-loop single-row value marquee, interactive horizontal tea card sliders, mindful steeping matrix references, responsive modal reviews, and a smooth slide-out interactive cart drawer. With zero heavy frameworks or bloated dependencies, the site achieves blazing-fast load times and flawless mobile-first responsiveness across every device.
+
+---
+
+## ❌ The Problem & ✅ The Solution
 
 > **A tea website should feel as calm and intentional as the tea itself.**
 
-Many product websites focus heavily on products and pricing while overlooking the atmosphere and storytelling that shape a premium brand. Tea-Buffe approaches the digital experience as a harmonious combination of product discovery, brand storytelling, visual design, and calm interaction.
+Traditional beverage websites are cluttered, lack brand atmosphere, compromise on mobile responsiveness, and treat tea as an ordinary commodity. Visitors expect an immersive, serene visual journey with transparent sourcing and mindful brewing rituals.
 
-| The Challenge | Tea-Buffe's Solution |
-| :--- | :--- |
-| Tea products can feel visually repetitive | Botanical-inspired layouts and editorial-style presentation |
-| Product-focused websites can lack brand personality | Dedicated Story, Ritual, Gallery, and Journal sections |
-| Users need a clear way to explore different teas | Dedicated Tea Collection experience with categorized selections |
-| Desktop designs often lose quality on smaller screens | Responsive layouts meticulously tuned across desktop, tablet, and mobile |
-| Large visual elements can make navigation difficult | Structured navigation with clear content hierarchy and smooth page transitions |
-| A tea brand needs more than product listings | Combines products, storytelling, rituals, and visual gallery content |
-| Generic layouts reduce premium perception | Custom typography, spacing, natural botanical color palettes, and composition |
-
----
-
-## Live Links and UI Preview
-
-- **GitHub Repository:** [https://github.com/CoderGUY47/tea-house](https://github.com/CoderGUY47/tea-house)
-- **Live Deployment Website:** [https://coderguy47.github.io/tea-house/](https://coderguy47.github.io/tea-house/)
-
-### Responsive Interface Preview (Desktop & Mobile)
-
-| Desktop Experience | Mobile Experience |
-| :---: | :---: |
-| <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience" width="100%" /> | <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience" width="100%" /> |
-| **Desktop Experience** (1920p Botanical Layout) | **Mobile Experience** (390p Single-Row Marquee & Column Headers) |
-
-### Website Core Experiences
-
-| Our Story | Tea Collection | The Ritual |
-| :---: | :---: | :---: |
-| **Brand Storytelling**<br>Artisanal heritage & sustainable sourcing | **Tea Discovery**<br>Curated loose leaf & rare botanicals | **Tea Ritual & Experience**<br>Mindful brewing guides & steeping tips |
-
-| Gallery | Journal |
-| :---: | :---: |
-| **Visual Tea Experience**<br>Immersive botanical imagery & aesthetics | **Editorial Content**<br>Tea-related stories, culture & recipes |
-
-### Key Section Previews
-
-| The Collection (Product Slider) | The Tea Ritual (Mindful Brewing) |
-| :---: | :---: |
-| <img src="./part-2.png" alt="Tea Collection Experience" width="100%" /> | <img src="./part-3.png" alt="The Tea Ritual Experience" width="100%" /> |
-| **Interactive Card Slider** (Categorized harvests) | **Stacked Steeping Ritual** (Mindful cues & step guides) |
-
-*Tea-Buffe UI Preview — Desktop Homepage, Mobile Interface, and Core Brand Sections.*
+| ❌ The Problem | ✅ Tea-Buffe's Solution |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Cluttered commodity e-commerce templates that destroy calm ambiance | Editorial, botanical design system with organic earth tones and warm cream palettes |
+| Lack of authentic brand storytelling and heritage narrative | Dedicated Story, Ritual, and Journal sections honoring artisan garden farmers |
+| Confusing product discovery and repetitive tea listings | Filterable collection with tasting notes, origin details, and horizontal card sliders |
+| Mobile views squashing headlines into narrow multi-line columns | Mobile-first column headers with balanced line-heights and tight vertical margins |
+| Value badges wrapping into messy vertical stacks on small screens | Hardware-accelerated infinite sliding marquee in exactly one continuous horizontal row |
+| Bloated frontend frameworks slowing down initial page loads | Zero-dependency vanilla MPA delivering instant rendering and top Core Web Vitals |
 
 ---
 
-## Business Value and SEO
+## 🚀 Live Links & UI Preview
 
-By balancing botanical aesthetic warmth with lightweight static performance, Tea-Buffe delivers immediate commercial and brand value:
+* **Live Demo Website:** [https://coderguy47.github.io/tea-house/](https://coderguy47.github.io/tea-house/)
+* **GitHub Repository:** [https://github.com/CoderGUY47/tea-house](https://github.com/CoderGUY47/tea-house)
+
+<br/>
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+    </td>
+    <td width="50%">
+      <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>💻 Desktop Command View (1920p Botanical Layout)</sub></td>
+    <td align="center"><sub>📱 Mobile Responsive View (Single-Row Sliding Marquee & Column Headers)</sub></td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./part-2.png" alt="Tea Collection Product Slider Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+    </td>
+    <td width="50%">
+      <img src="./part-3.png" alt="The Tea Ritual Experience Preview" width="100%" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>🍃 Interactive Card Slider (Categorized Harvests)</sub></td>
+    <td align="center"><sub>☕ Mindful Steeping Ritual (Three Mindful Steps)</sub></td>
+  </tr>
+</table>
+
+---
+
+## 💡 Business Value & SEO
+
+By balancing botanical aesthetic warmth with lightweight static performance, Tea-Buffe delivers remarkable utility:
 
 | Feature | Impact |
-| :--- | :--- |
-| **Tea Collection** | Makes tea varieties easier to discover and explore with clear tasting notes and origin details |
-| **Brand Storytelling** | Builds a stronger emotional connection between visitors and the artisan tea brand |
-| **Responsive Design** | Provides an effortless, visually consistent experience across desktop, tablet, and mobile screens |
-| **Semantic HTML** | Creates a clean, accessible content structure for browsers, screen readers, and search engines |
-| **Dedicated Content Pages** | Creates distinct entry points and opportunities for organic search visibility across tea topics |
-| **Visual Product Presentation** | Enhances perceived product quality and brand luxury through editorial aesthetics |
-| **Clear Navigation** | Helps users effortlessly explore between collections, rituals, stories, gallery, and journal |
-| **Lightweight Architecture** | Zero bloated dependencies; delivers instant initial page loads and rapid browsing |
+| --------------------------------- | ------------------------------------------------------------------------------- |
+| **Organic Brand Savoring** | Editorial storytelling and sensory tasting notes dramatically increase user session dwell time |
+| **Instant Initial Page Loads** | Zero bloated dependencies; pure semantic HTML/CSS achieves 100% Core Web Vitals |
+| **Frictionless Mobile Discovery** | Single-row sliding marquee, column section headers, and touch-friendly card carousels |
+| **Multi-Page SEO Indexing** | Dedicated semantic pages (`collection`, `story`, `ritual`, `gallery`, `journal`) maximize organic search reach |
+| **Micro-Cart Conversion** | Slide-out cart drawer with live quantity updating turns browsing into order intention |
 
 ### SEO & Discoverability Keywords
 
-`Tea House Website` • `Tea Shop Website` • `Tea Website Design` • `Tea Landing Page` • `Tea Collection Website` • `Tea Brand Website` • `Responsive Tea Website` • `HTML CSS JavaScript Project` • `Frontend Web Development` • `Responsive Web Design` • `Modern Landing Page` • `Product Landing Page` • `Tea Shop UI Design` • `Botanical Website Design`
+`Tea House Website` • `Tea Shop Website` • `Tea Website Design` • `Tea Landing Page` • `Tea Collection Website` • `Tea Brand Website` • `Responsive Tea Website` • `HTML CSS JavaScript Project` • `Frontend Web Development` • `Responsive Web Design` • `Modern Landing Page` • `Botanical Website Design`
 
 ---
 
-## Key Features
+## 🚀 Key Features
 
-- **Premium Tea House Landing Page** — Hero section introducing the Tea-Buffe brand ethos, mindful aesthetic, and philosophy.
-- **Curated Tea Collection** — Dedicated collection page for exploring artisan teas, tasting notes, and botanical varieties.
-- **Our Story** — Brand-focused storytelling section exploring artisanal roots, ethical harvesting, and sustainable sourcing.
-- **The Ritual** — Dedicated guide to mindful tea brewing, optimal water temperatures, steeping times, and sensory appreciation.
-- **Botanical Gallery** — High-definition visual gallery showcasing tea leaves, teaware craftsmanship, and calming ambiance.
-- **Tea Journal** — Editorial-style publication section with rich articles on tea culture, seasonal harvesting, and recipes.
-- **Responsive Navigation** — Fluid header with active page indicators, mobile menu toggle, and intuitive brand routing.
-- **Botanical Design System** — Organic earth tones, forest greens, warm creams, and delicate leaf iconography.
-- **Interactive Micro-UI** — Vanilla JavaScript interactions, scroll effects, smooth reveals, and content filtering.
-- **Editorial Typography** — Elegant serif headings paired with clean, readable sans-serif body typography.
-
----
-
-## Project Tasks and Phases
-
-### Phase 1 — Brand Foundation and Homepage
-
-- **Project Setup**
-  - [x] Semantic HTML5 project architecture
-  - [x] Global CSS design tokens and botanical variables
-  - [x] Vanilla JavaScript interaction setup
-  - [x] Responsive viewport and meta configuration
-- **Homepage Experience**
-  - [x] Atmospheric hero section with brand motto
-  - [x] Brand introduction and curated highlights
-  - [x] Tea-focused visual composition and cards
-  - [x] Primary calls-to-action for collection and story
-  - [x] Responsive navigation bar with mobile toggle
+* **🍵 Immersive Botanical Hero Experience** — Atmospheric welcome section with centered branding, circular teaware composition, live stats, and quick-ritual cues.
+* **🍃 Infinite Value Marquee** — Single continuous horizontal sliding ticker highlighting artisan values (*Single origin*, *Small batch*, *Natural botanicals*, *Thoughtfully blended*) with auto-scrolling CSS keyframes.
+* **🌿 Interactive Harvests Slider** — Touch-enabled horizontal product carousel featuring multi-category filters (Green, Black, Herbal, Oolong, White) and instant add-to-cart triggers.
+* **📖 Artisanal Storytelling & Ethos** — Rich heritage chronicle celebrating Sreemangal foothill gardens, ethical two-leaves-and-a-bud plucking, and sustainable craft.
+* **☕ Mindful Brewing Matrix** — Comprehensive step-by-step tea ritual with water temperature guides, infusion timing benchmarks, and sensory mindfulness advice.
+* **📸 Curated Botanical Gallery** — High-definition visual archive showcasing harvest trays, morning light steeps, and teaware artistry.
+* **📰 Editorial Tea Journal** — Long-form publication essays exploring water chemistry, catechin release, leaf terroir, and slow living.
+* **🛍️ Slide-Out Interactive Cart Drawer** — Fully-functional JavaScript drawer with live item counters, subtotal calculations, and checkout modal flow.
+* **📱 Bulletproof Mobile-First Responsive Design** — Dedicated column layouts, clean touch margins, and optimized typography tuned for phones, tablets, and desktops.
 
 ---
 
-### Phase 2 — Tea Collection and Product Experience
+## 📦 Tech Stack & Architecture
 
-- **Tea Collection**
-  - [x] Dedicated collection showcase page
-  - [x] Tea category presentation (Green, Black, Herbal, Oolong)
-  - [x] Product card layouts with flavor profiles and notes
-  - [x] Responsive multi-column grid layout
-- **Tea Discovery**
-  - [x] Category filtering and collection navigation
-  - [x] Visual tea leaf and packaging presentation
-  - [x] Supporting brew guides and pricing details
+### **Core Frontend Stack**
 
----
+| Layer | Technology | Purpose / Notes |
+| -------------------------- | ----------------------------------------------------- | ------------------------------------------------------------- |
+| **Markup & Semantics** | `HTML5` | Semantic structure, accessibility attributes, and SEO metadata |
+| **Styling & Design Tokens** | `CSS3` (Vanilla) | Custom CSS variables, clamp fluid typography, and keyframes |
+| **Logic & Interactions** | `JavaScript (ES6+)` | Filter engines, cart state, modal dialogs, and scroll triggers |
+| **Typography** | `Google Fonts` | Cormorant Garamond, Playfair Display, and Google Sans Flex |
+| **Iconography** | `Flaticon UIcons` & `Font Awesome` | Minimalist botanical leaf, arrow, and currency icons |
+| **Hosting & Distribution** | `GitHub Pages` | Zero-configuration global CDN delivery with custom domains |
 
-### Phase 3 — Brand Storytelling and Tea Ritual
-
-- **Our Story**
-  - [x] Brand philosophy and heritage narrative
-  - [x] Editorial storytelling layout with alternating media
-  - [x] Sustainable sourcing and artisan farmer highlights
-- **The Ritual**
-  - [x] Dedicated mindful brewing ceremony page
-  - [x] Steeping times, temperatures, and teaware guides
-  - [x] Botanical aesthetic elements and sensory tips
-
----
-
-### Phase 4 — Visual Gallery and Editorial Journal
-
-- **Botanical Gallery**
-  - [x] Image-focused layout with responsive masonry grid
-  - [x] Hover zoom effects and caption overlays
-  - [x] Visual storytelling of harvests and teaware
-- **Tea Journal**
-  - [x] Editorial publication page layout
-  - [x] Article cards with read times, categories, and author metadata
-  - [x] Responsive article presentation across devices
-
----
-
-### Phase 5 — Responsive Design and Final Polish
-
-- **Multi-Device Optimization**
-  - [x] Fluid desktop layout (1440px+)
-  - [x] Adaptive tablet layout (768px – 1024px)
-  - [x] Touch-friendly mobile layout (320px – 480px)
-- **Design System & Polish**
-  - [x] Typography hierarchy with Google Fonts (Playfair Display, Cormorant Garamond, Google Sans Flex)
-  - [x] Harmonic spacing scale and CSS custom properties
-  - [x] Natural color palette consistency
-  - [x] Navigation refinement with active page states
-  - [x] Clean developer inspect & interaction polish
-
----
-
-## Tech Stack and Architecture
-
-| Technology | Category | Purpose / Notes |
-| :--- | :--- | :--- |
-| **HTML5** | Markup | Semantic website structure, metadata, and accessibility |
-| **CSS3** | Styling | Custom layout grids, flexbox, CSS variables, and keyframe animations |
-| **JavaScript (ES6+)** | Programming | Client-side interactions, mobile navigation, and dynamic UI behavior |
-| **Google Fonts** | Typography | Cormorant Garamond, Playfair Display, and Google Sans Flex |
-| **Flaticon UIcons** | Icons | Minimalist botanical icons, arrows, and UI controls |
-| **Font Awesome** | Icons | Currency symbology and utility iconography |
-| **GitHub Pages** | Hosting | Zero-configuration static hosting with instant global CDN delivery |
-| **Figma** | Design | Visual layout exploration, component tokens, and art direction |
-
-### Architecture Overview
-
-The project follows a lightweight, static multi-page architecture (MPA) delivering lightning-fast load times with zero build steps or runtime framework overhead:
+### **Architecture Overview**
 
 ```text
 HTML Pages (index, collection, story, ritual, gallery, journal)
@@ -226,23 +159,24 @@ HTML Pages (index, collection, story, ritual, gallery, journal)
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 tea-house/
 │
-├── index.html                    # Homepage (Brand introduction & hero)
-├── collection.html               # Tea collection (Categorized tea catalog)
-├── story.html                    # Our Story (Heritage & philosophy)
-├── ritual.html                   # The Ritual (Mindful brewing guides)
-├── gallery.html                  # Botanical Gallery (Visual tea experience)
-├── journal.html                  # Tea Journal (Editorial articles & culture)
+├── index.html                    # Homepage (Brand introduction, hero & marquee)
+├── collection.html               # Tea collection (Categorized catalog & search)
+├── story.html                    # Our Story (Heritage, origins & philosophy)
+├── ritual.html                   # The Ritual (Mindful brewing & steeping matrix)
+├── gallery.html                  # Botanical Gallery (Visual exhibition & mosaic)
+├── journal.html                  # Tea Journal (Editorial essays & brewing guides)
 │
-├── styles.css                    # Global CSS variables, design system & responsive rules
-├── script.js                     # Navigation toggles, scroll effects & UI interactions
+├── styles.css                    # Design system, CSS variables & mobile rules
+├── script.js                     # Cart state, mobile drawer & UI interactions
 │
-├── logo.png                      # Tea-Buffe official emblem & brand mark
+├── logo.png                      # Official Tea-Buffe emblem & brand mark
 ├── Minimal Green Tea Cup Emblem.png # Tea cup graphic emblem asset
+│
 ├── tea-buffe-desktop-preview.png # Desktop preview card (1000x720)
 ├── tea-buffe-mobile-preview.png  # Mobile preview card (1000x720)
 ├── tea-buffe-preview.png         # Combined desktop & mobile showcase banner
@@ -256,67 +190,58 @@ tea-house/
 
 ---
 
-## Installation and Setup
+## 🛠️ Installation & Setup
 
-### Prerequisites
+Tea-Buffe is built with pure web standards — no compilers, bundlers, or heavy npm node modules required.
 
-No build tools, package managers, or compilers are required. You only need:
-- A modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari)
-- A code editor such as [VS Code](https://code.visualstudio.com/)
-- *(Optional)* [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VS Code extension for hot-reloading
-
-### Installation
-
+### **1. Clone the Repository**
 ```bash
-# 1. Clone the repository
 git clone https://github.com/CoderGUY47/tea-house.git
 cd tea-house
 ```
 
-### Run Locally
-
-Simply double-click or open `index.html` directly in any web browser.
-
-For an optimal local development workflow:
-1. Open the project folder in **VS Code**.
-2. Right-click `index.html` in the file explorer.
-3. Select **Open with Live Server** (or use shortcut `Alt + L, Alt + O`).
+### **2. Run Locally in Browser**
+Simply open `index.html` directly in any modern browser:
+* **Option A:** Double-click `index.html` to open in Google Chrome, Microsoft Edge, Firefox, or Safari.
+* **Option B (Recommended):** In **VS Code**, right-click `index.html` and select **Open with Live Server** (shortcut `Alt + L, Alt + O`) for instant live reload.
+* **Option C:** Run a local lightweight Python server:
+  ```bash
+  python -m http.server 3000
+  ```
+  Visit `http://localhost:3000` in your browser.
 
 ---
 
-## Production Deployment
+## 🚢 Production Deployment
 
-- **Hosting Platform:** Deployed on **GitHub Pages**
-- **Repository:** [`CoderGUY47/tea-house`](https://github.com/CoderGUY47/tea-house)
-- **Live URL:** [https://coderguy47.github.io/tea-house/](https://coderguy47.github.io/tea-house/)
-- **Deployment Pipeline:** Automated deployment from the `main` branch.
+* **Live Deployment Platform:** Deployed on **GitHub Pages** (`coderguy47.github.io/tea-house`).
+* **Source Repository:** [`CoderGUY47/tea-house`](https://github.com/CoderGUY47/tea-house)
+* **Branch:** Automated continuous deployment tracking `main`.
 
-### Deployment Flow
+### Deployment Pipeline
 
 ```text
-Local Development
+Local Edits (HTML / CSS / JS)
        ↓
-   Git Commit
+   Git Commit & Push
        ↓
 GitHub Repository (main)
        ↓
-GitHub Pages CDN
+GitHub Pages CDN Pipeline
        ↓
-  Live Website
+   Live Global Website
 ```
 
 ---
 
-## Social and Contributing
+## 🤝 Social & Contributing
 
-Produced with absolute dedication and craftsmanship by **[CoderGUY47](https://github.com/CoderGUY47)**.
+<div align="center">
 
-*Join us in celebrating the art of mindful tea and botanical digital experiences!*
+Produced with absolute dedication and precision by **[CoderGUY47](https://github.com/CoderGUY47)**.
+
+*Join us in slowing down and savouring the art of mindful tea craft!*
 
 [![GitHub](https://img.shields.io/badge/GitHub-CoderGUY47-181717?style=for-the-badge&logo=github)](https://github.com/CoderGUY47)
 
----
-
-## 📄 License
-
-This project is created for learning, portfolio, and demonstration purposes. Feel free to explore the source code and use it as a reference for learning frontend development and responsive web design.
+</div>
