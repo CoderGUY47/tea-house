@@ -9,13 +9,13 @@
 ---
 
 <p align="center">
-  <img src="./tea-buffe.png" alt="Tea-Buffe Desktop Experience" width="66%" />
-  &nbsp;&nbsp;
-  <img src="./tea-buffe-mobile.png" alt="Tea-Buffe Mobile Experience" width="30%" />
+  <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience" width="49%" />
+  &nbsp;
+  <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience" width="49%" />
 </p>
 
 <p align="center">
-  <em>Desktop and mobile previews featuring curated botanical layouts, single-row auto-sliding marquee, and responsive column headers.</em>
+  <em>Tea-Buffe desktop and mobile previews presented side-by-side with equal proportions, same height, and unified visual styling.</em>
 </p>
 
 ---
@@ -72,8 +72,8 @@ Many product websites focus heavily on products and pricing while overlooking th
 
 | Desktop Experience | Mobile Experience |
 | :---: | :---: |
-| <img src="./tea-buffe.png" alt="Tea-Buffe Desktop Homepage" width="100%" /> | <img src="./tea-buffe-mobile.png" alt="Tea-Buffe Mobile View" width="100%" /> |
-| **Desktop View** (Curated botanical layout) | **Mobile View** (Single-row marquee & column headers) |
+| <img src="./tea-buffe-desktop-preview.png" alt="Tea-Buffe Desktop Experience" width="100%" /> | <img src="./tea-buffe-mobile-preview.png" alt="Tea-Buffe Mobile Experience" width="100%" /> |
+| **Desktop Experience** (1920p Botanical Layout) | **Mobile Experience** (390p Single-Row Marquee & Column Headers) |
 
 ### Website Core Experiences
 
@@ -85,7 +85,14 @@ Many product websites focus heavily on products and pricing while overlooking th
 | :---: | :---: |
 | **Visual Tea Experience**<br>Immersive botanical imagery & aesthetics | **Editorial Content**<br>Tea-related stories, culture & recipes |
 
-*Tea-Buffe UI Preview — Desktop Homepage and Core Brand Sections.*
+### Key Section Previews
+
+| The Collection (Product Slider) | The Tea Ritual (Mindful Brewing) |
+| :---: | :---: |
+| <img src="./part-2.png" alt="Tea Collection Experience" width="100%" /> | <img src="./part-3.png" alt="The Tea Ritual Experience" width="100%" /> |
+| **Interactive Card Slider** (Categorized harvests) | **Stacked Steeping Ritual** (Mindful cues & step guides) |
+
+*Tea-Buffe UI Preview — Desktop Homepage, Mobile Interface, and Core Brand Sections.*
 
 ---
 
@@ -248,8 +255,13 @@ tea-house/
 │
 ├── logo.png                      # Tea-Buffe official emblem & brand mark
 ├── Minimal Green Tea Cup Emblem.png # Tea cup graphic emblem asset
-├── tea-buffe.png                 # Full desktop command center preview
-├── tea-buffe-mobile.png          # Mobile responsive experience preview
+├── tea-buffe-desktop-preview.png # Desktop preview card (1000x720)
+├── tea-buffe-mobile-preview.png  # Mobile preview card (1000x720)
+├── tea-buffe-preview.png         # Combined desktop & mobile showcase banner
+├── part-2.png                    # Tea Collection product slider showcase
+├── part-3.png                    # The Tea Ritual mindful brewing showcase
+├── tea-buffe.png                 # Full desktop raw preview
+├── tea-buffe-mobile.png          # Mobile raw responsive preview
 │
 └── README.md                     # Comprehensive project documentation
 ```
