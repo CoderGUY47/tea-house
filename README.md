@@ -8,6 +8,18 @@
 
 ---
 
+<p align="center">
+  <img src="./tea-buffe.png" alt="Tea-Buffe Desktop Experience" width="66%" />
+  &nbsp;&nbsp;
+  <img src="./tea-buffe-mobile.png" alt="Tea-Buffe Mobile Experience" width="30%" />
+</p>
+
+<p align="center">
+  <em>Desktop and mobile previews featuring curated botanical layouts, single-row auto-sliding marquee, and responsive column headers.</em>
+</p>
+
+---
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -56,9 +68,12 @@ Many product websites focus heavily on products and pricing while overlooking th
 - **GitHub Repository:** [https://github.com/CoderGUY47/tea-house](https://github.com/CoderGUY47/tea-house)
 - **Live Deployment Website:** [https://coderguy47.github.io/tea-house/](https://coderguy47.github.io/tea-house/)
 
-### Desktop Homepage
+### Responsive Interface Preview (Desktop & Mobile)
 
-![Tea-Buffe Desktop Homepage](./tea-buffe.png)
+| Desktop Experience | Mobile Experience |
+| :---: | :---: |
+| <img src="./tea-buffe.png" alt="Tea-Buffe Desktop Homepage" width="100%" /> | <img src="./tea-buffe-mobile.png" alt="Tea-Buffe Mobile View" width="100%" /> |
+| **Desktop View** (Curated botanical layout) | **Mobile View** (Single-row marquee & column headers) |
 
 ### Website Core Experiences
 
@@ -234,6 +249,7 @@ tea-house/
 ├── logo.png                      # Tea-Buffe official emblem & brand mark
 ├── Minimal Green Tea Cup Emblem.png # Tea cup graphic emblem asset
 ├── tea-buffe.png                 # Full desktop command center preview
+├── tea-buffe-mobile.png          # Mobile responsive experience preview
 │
 └── README.md                     # Comprehensive project documentation
 ```
