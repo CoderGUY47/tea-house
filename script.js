@@ -3,61 +3,6 @@
 // Navigation, Product Slider, Cart Manager, Checkout & Payment Processor
 // ==========================================================================
 
-// --------------------------------------------------------------------------
-// Anti-Inspect & DevTools Protection
-// Disable right-click context menu, shortcut keys, and inspection tools
-// --------------------------------------------------------------------------
-(function () {
-  // 1. Disable right-click context menu
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-    return false;
-  }, { capture: true });
-
-  // 2. Disable DevTools & source inspection shortcuts
-  window.addEventListener("keydown", function (e) {
-    // F12 key
-    if (e.key === "F12" || e.keyCode === 123) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-
-    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
-
-    // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect Element)
-    if (isCtrlOrMeta && e.shiftKey) {
-      const k = (e.key || "").toUpperCase();
-      if (k === "I" || k === "J" || k === "C") {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      }
-    }
-
-    // Ctrl+U / Cmd+U (View Page Source)
-    if (isCtrlOrMeta && (e.key === "u" || e.key === "U")) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-
-    // Ctrl+S / Cmd+S (Save Page)
-    if (isCtrlOrMeta && (e.key === "s" || e.key === "S")) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }, { capture: true });
-
-  // 3. Debugger protection if DevTools is opened
-  setInterval(function () {
-    (function () {
-      return false;
-    })["constructor"]("debugger")();
-  }, 500);
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------
   // 1. Navigation & Mobile Menu

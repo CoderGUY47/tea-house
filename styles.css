@@ -42,12 +42,6 @@ body {
 img {
   max-width: 100%;
   display: block;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-  -webkit-touch-callout: none;
 }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
